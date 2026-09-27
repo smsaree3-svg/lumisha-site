@@ -213,7 +213,7 @@ footer a:hover{color:var(--ink)}
       <div>
         <p class="eyebrow">Lumisha India Private Limited · Lumisha LLC</p>
         <h1 style="margin-top:14px">Your business day runs on <em>our night shift.</em></h1>
-        <p class="lede">From our office in Kolkata, trained teams answer your customers, dispatch your freight and run your back office during US working hours. We also build the software those teams use, and sell it to businesses like yours.</p>
+        <p class="lede">From our office in Kolkata, trained teams answer your customers, dispatch your freight and run your back office around the clock, 24/7. We also build the software those teams use, and sell it to businesses like yours.</p>
         <div class="ctas">
           <a class="btn primary" href="https://calendly.com/amitrodaindia/15min" target="_blank" rel="noopener">Book a 15-minute call</a>
           <a class="btn ghost" href="#services">See what we do</a>
@@ -225,8 +225,8 @@ footer a:hover{color:var(--ink)}
         <div class="clock"><span class="city">New York, ET</span><span class="t" id="c-et">--:--</span></div>
         <div class="clock"><span class="city">Chicago, CT</span><span class="t" id="c-ct">--:--</span></div>
         <div class="clock"><span class="city">Los Angeles, PT</span><span class="t" id="c-pt">--:--</span></div>
-        <p class="status"><span class="dot" aria-hidden="true"></span><span id="c-status">Teams on shift around the clock, Monday to Friday</span></p>
-        <p class="note">Night, day and half-day shifts are planned around your time zone, not ours.</p>
+        <p class="status"><span class="dot" aria-hidden="true"></span><span id="c-status">Teams on shift right now, 24/7</span></p>
+        <p class="note">We run 24/7, with every shift planned around your time zone, not ours.</p>
       </aside>
     </div>
   </div>
@@ -286,7 +286,7 @@ footer a:hover{color:var(--ink)}
       <div class="head">
         <p class="eyebrow">Logistics operations</p>
         <h2>Freight and delivery teams for US brokers, carriers and last-mile networks</h2>
-        <p class="lede">Our dispatchers work US hours on US systems today, for freight brokerages and a last-mile delivery network. They join your team, use your load boards and phones, and report the way you already do.</p>
+        <p class="lede">Our dispatchers work around the clock on US systems today, for freight brokerages and a last-mile delivery network. They join your team, use your load boards and phones, and report the way you already do.</p>
       </div>
       <div class="lanes">
         <div class="lane">
@@ -305,7 +305,7 @@ footer a:hover{color:var(--ink)}
           <div class="tags"><span class="tag">Route monitoring</span><span class="tag">Driver support</span><span class="tag">Returns</span><span class="tag">EOD reports</span></div>
         </div>
       </div>
-      <p class="shifts"><span><b>Night</b> 21:55 to 06:30 IST</span><span><b>Day</b> 05:55 to 14:30 IST</span><span><b>Coverage</b> ET, CT and PT working hours</span></p>
+      <p class="shifts"><span><b>Coverage</b> 24/7, 365 days a year</span><span><b>Shifts</b> Night, day and weekend teams in rotation</span><span><b>Time zones</b> ET, CT, MT and PT</span></p>
     </div>
   </section>
 
@@ -425,7 +425,7 @@ footer a:hover{color:var(--ink)}
             <dt>Address</dt><dd>16 Golaghata Road, Ground Floor, Kolkata 700048, West Bengal</dd>
             <dt>Phone</dt><dd><a href="tel:+913335980152">+91 33 3598 0152</a></dd>
             <dt>Email</dt><dd><a href="mailto:info@lumisha.in">info@lumisha.in</a></dd>
-            <dt>Hours</dt><dd>Mon to Fri, 9am to 5pm IST</dd>
+            <dt>Office</dt><dd>Mon to Fri, 9am to 5pm IST</dd><dt>Support</dt><dd>24/7, every day</dd>
           </dl>
         </div>
         <div class="office">
@@ -435,7 +435,7 @@ footer a:hover{color:var(--ink)}
             <dt>Address</dt><dd>8 The Green, STE A, Dover, DE 19901</dd>
             <dt>Phone</dt><dd><a href="tel:+16204224115">+1 (620) 422-4115</a></dd>
             <dt>Email</dt><dd><a href="mailto:info@lumisha.in">info@lumisha.in</a></dd>
-            <dt>Hours</dt><dd>Mon to Fri, 9am to 5pm ET</dd>
+            <dt>Office</dt><dd>Mon to Fri, 9am to 5pm ET</dd><dt>Support</dt><dd>24/7, every day</dd>
           </dl>
         </div>
       </div>
@@ -469,7 +469,7 @@ footer a:hover{color:var(--ink)}
     try{
       var d=now.toLocaleDateString("en-US",{timeZone:"America/Chicago",weekday:"short"});
       var s=document.getElementById("c-status");
-      if(s) s.textContent=(d==="Sat"||d==="Sun")?"Weekend coverage on request":"Teams on shift for US business hours today";
+      if(s) s.textContent="Teams on shift right now, 24/7";
     }catch(e){}
   }
   tick(); setInterval(tick,30000);

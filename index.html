@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lumisha | Offshore teams, logistics operations and software</title>
+<meta name="description" content="Lumisha runs customer service, sales and freight dispatch teams for US businesses from Kolkata, builds SMSLocate, Trexpanda and RingJust, and makes NaphClean home care products.">
+<meta property="og:title" content="Lumisha">
+<meta property="og:description" content="Your business day runs on our night shift. Offshore teams, logistics operations and software from Kolkata and Dover, DE.">
+<meta property="og:url" content="https://lumisha.in/">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://lumisha.in/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='36' r='14' fill='%23D5382C'/%3E%3Crect x='6' y='52' width='52' height='4' rx='2' fill='%231B2130'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#F4F5F7; --surface:#FFFFFF; --ink:#1B2130; --muted:#5A6275; --line:#DADDE4;
+  --sun:#D5382C; --sun-soft:#FBE7E3; --glow:#EFA13A; --night:#1B2130; --night-ink:#E9ECF2; --night-muted:#9AA3B6;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Instrument Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --paper:#12151D; --surface:#1A1F2B; --ink:#E9ECF2; --muted:#9AA3B6; --line:#2B3242;
+    --sun:#F0574A; --sun-soft:#3A1E1D; --glow:#F2B052; --night:#0C0F15; --night-ink:#E9ECF2; --night-muted:#8E97AA;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#12151D; --surface:#1A1F2B; --ink:#E9ECF2; --muted:#9AA3B6; --line:#2B3242;
+  --sun:#F0574A; --sun-soft:#3A1E1D; --glow:#F2B052; --night:#0C0F15; --night-ink:#E9ECF2; --night-muted:#8E97AA;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--sun);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1140px;margin:0 auto;padding-inline:24px}
+@media (max-width:600px){.wrap{padding-inline:18px}}
+h1,h2,h3{text-wrap:balance;margin:0}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,3.4vw,2.3rem);line-height:1.15;letter-spacing:-0.01em}
+h3{font-family:var(--body);font-weight:600;font-size:1.15rem;line-height:1.3}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sun)}
+.lede{color:var(--muted);max-width:62ch;font-size:1.05rem}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand b{font-family:var(--display);font-weight:700;letter-spacing:.08em;font-size:1.05rem}
+.nav{display:flex;gap:22px;font-size:.95rem}
+.nav a{text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.95rem;border:1px solid transparent}
+.btn.primary{background:var(--sun);color:#fff}
+.btn.primary:hover{filter:brightness(1.07)}
+.btn.ghost{border-color:var(--line);color:var(--ink);background:var(--surface)}
+@media (max-width:860px){.nav{display:none}}
+
+/* hero */
+.hero{padding-block:72px 56px}
+.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:center}
+.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(2.2rem,5.4vw,3.9rem);line-height:1.04;letter-spacing:-0.02em}
+.hero h1 em{font-style:normal;color:var(--sun)}
+.hero .lede{margin-top:22px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.clocks{background:var(--night);color:var(--night-ink);border-radius:20px;padding:26px;position:relative;overflow:hidden}
+.clocks::before{content:"";position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,var(--glow) 0%,var(--sun) 45%,transparent 70%);opacity:.55}
+.clocks .lbl{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--night-muted)}
+.clock{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-block:14px;border-bottom:1px solid rgba(255,255,255,.1);position:relative}
+.clock:last-of-type{border-bottom:0}
+.clock .city{font-weight:600}
+.clock .t{font-family:var(--mono);font-size:1.6rem;font-variant-numeric:tabular-nums}
+.clocks .note{margin-top:10px;font-size:.9rem;color:var(--night-muted);position:relative}
+.clocks .status{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:.88rem;position:relative}
+.dot{width:8px;height:8px;border-radius:50%;background:#3FBF7F;box-shadow:0 0 0 4px rgba(63,191,127,.2)}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.hero{padding-block:44px 36px}}
+
+/* divisions strip */
+.divisions{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.divisions a{padding:22px 20px;text-decoration:none;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.divisions a:last-child{border-right:0}
+.divisions a:hover{background:var(--surface)}
+.divisions .k{font-family:var(--mono);font-size:.74rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.divisions .v{font-weight:600}
+@media (max-width:860px){.divisions{grid-template-columns:1fr 1fr}.divisions a:nth-child(2){border-right:0}.divisions a:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+section{padding-block:84px}
+@media (max-width:600px){section{padding-block:56px}}
+.head{display:flex;flex-direction:column;gap:14px;margin-bottom:40px}
+
+/* services */
+.svc-groups{display:grid;gap:18px}
+.svc{display:grid;grid-template-columns:260px 1fr;gap:28px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px}
+.svc .side{display:flex;flex-direction:column;gap:10px}
+.svc .side p{color:var(--muted);font-size:.95rem}
+.svc ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:18px 28px}
+.svc li strong{display:block;font-weight:600;margin-bottom:2px}
+.svc li span{color:var(--muted);font-size:.93rem;line-height:1.5;display:block}
+@media (max-width:860px){.svc{grid-template-columns:1fr}.svc ul{grid-template-columns:1fr}}
+
+/* logistics band */
+.band{background:var(--night);color:var(--night-ink)}
+.band .lede{color:var(--night-muted)}
+.band .eyebrow{color:var(--glow)}
+.lanes{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.1);border-radius:18px;overflow:hidden;margin-top:8px}
+.lane{background:var(--night);padding:26px;display:flex;flex-direction:column;gap:12px}
+.lane p{color:var(--night-muted);font-size:.95rem}
+.lane .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.tag{font-family:var(--mono);font-size:.72rem;padding:4px 9px;border-radius:999px;border:1px solid rgba(255,255,255,.18);color:var(--night-ink)}
+.shifts{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px 28px;font-family:var(--mono);font-size:.85rem;color:var(--night-muted)}
+.shifts b{color:var(--night-ink);font-weight:500}
+@media (max-width:860px){.lanes{grid-template-columns:1fr}}
+
+/* products */
+.prods{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.prod{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:12px}
+.prod .row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.prod .name{font-family:var(--display);font-weight:700;font-size:1.3rem}
+.pill{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.pill.live{background:#E3F4EA;color:#1D6B43}
+.pill.beta{background:#FFF1DC;color:#8A5410}
+.pill.soon{background:var(--paper);color:var(--muted);border:1px solid var(--line)}
+:root[data-theme="dark"] .pill.live{background:#173726;color:#8EDDB0}
+:root[data-theme="dark"] .pill.beta{background:#3A2A12;color:#F2C27E}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pill.live{background:#173726;color:#8EDDB0}:root:not([data-theme="light"]) .pill.beta{background:#3A2A12;color:#F2C27E}}
+.prod .tagline{font-weight:600}
+.prod p.d{color:var(--muted);font-size:.95rem}
+.prod ul{margin:0;padding-left:18px;color:var(--muted);font-size:.93rem;display:grid;gap:4px}
+.prod .foot{margin-top:auto;padding-top:8px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-top:1px dashed var(--line)}
+.prod .foot .meta{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.prod .foot a{font-weight:600;color:var(--sun);text-decoration:none}
+.prod .foot a:hover{text-decoration:underline}
+@media (max-width:760px){.prods{grid-template-columns:1fr}}
+
+/* naphclean */
+.goods{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center;background:var(--sun-soft);border-radius:22px;padding:40px}
+.sizes{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.size{background:var(--surface);border-radius:14px;padding:16px 10px;text-align:center;border:1px solid var(--line)}
+.size .g{font-family:var(--display);font-weight:700;font-size:1.3rem}
+.size .p{font-family:var(--mono);font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.goods .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.goods .fine{font-size:.85rem;color:var(--muted);margin-top:12px}
+@media (max-width:860px){.goods{grid-template-columns:1fr;padding:26px}.sizes{grid-template-columns:repeat(2,1fr)}}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+.step{border-top:2px solid var(--ink);padding-top:16px;display:flex;flex-direction:column;gap:8px}
+.step .n{font-family:var(--mono);font-size:.8rem;color:var(--sun)}
+.step p{color:var(--muted);font-size:.95rem}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* reviews */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+blockquote{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:14px}
+blockquote p{font-size:.98rem}
+blockquote cite{font-style:normal;font-size:.85rem;color:var(--muted);margin-top:auto}
+@media (max-width:860px){.quotes{grid-template-columns:1fr}}
+
+/* careers */
+.careers{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+.perks{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.perks li{display:flex;gap:12px;align-items:flex-start}
+.perks li::before{content:"";flex:none;width:10px;height:10px;border-radius:50%;background:var(--sun);margin-top:9px}
+@media (max-width:860px){.careers{grid-template-columns:1fr}}
+
+/* offices */
+.offices{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.office{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:14px}
+.office .entity{font-family:var(--mono);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.office dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:.95rem}
+.office dt{color:var(--muted)}
+.office dd{margin:0;user-select:all}
+.contact-cta{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+@media (max-width:760px){.offices{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding-block:32px;color:var(--muted);font-size:.88rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center}
+footer nav{display:flex;flex-wrap:wrap;gap:18px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--ink)}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Lumisha home">
+      <img src="logo.webp" alt="Lumisha" width="157" height="40" style="display:block;height:40px;width:auto">
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#logistics">Logistics</a>
+      <a href="#software">Software</a>
+      <a href="#naphclean">NaphClean</a>
+      <a href="#careers">Careers</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn primary" href="https://calendly.com/amitrodaindia/15min" target="_blank" rel="noopener">Book a call</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Lumisha India Private Limited · Lumisha LLC</p>
+        <h1 style="margin-top:14px">Your business day runs on <em>our night shift.</em></h1>
+        <p class="lede">From our office in Kolkata, trained teams answer your customers, dispatch your freight and run your back office during US working hours. We also build the software those teams use, and sell it to businesses like yours.</p>
+        <div class="ctas">
+          <a class="btn primary" href="https://calendly.com/amitrodaindia/15min" target="_blank" rel="noopener">Book a 15-minute call</a>
+          <a class="btn ghost" href="#services">See what we do</a>
+        </div>
+      </div>
+      <aside class="clocks" aria-label="Office hours across time zones">
+        <p class="lbl">Right now</p>
+        <div class="clock"><span class="city">Kolkata, IST</span><span class="t" id="c-ist">--:--</span></div>
+        <div class="clock"><span class="city">New York, ET</span><span class="t" id="c-et">--:--</span></div>
+        <div class="clock"><span class="city">Chicago, CT</span><span class="t" id="c-ct">--:--</span></div>
+        <div class="clock"><span class="city">Los Angeles, PT</span><span class="t" id="c-pt">--:--</span></div>
+        <p class="status"><span class="dot" aria-hidden="true"></span><span id="c-status">Teams on shift around the clock, Monday to Friday</span></p>
+        <p class="note">Night, day and half-day shifts are planned around your time zone, not ours.</p>
+      </aside>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="divisions">
+      <a href="#services"><span class="k">Staffing</span><span class="v">Virtual teams and BPO</span></a>
+      <a href="#logistics"><span class="k">Freight</span><span class="v">Logistics operations</span></a>
+      <a href="#software"><span class="k">Lumisha LLC</span><span class="v">Software products</span></a>
+      <a href="#naphclean"><span class="k">Consumer</span><span class="v">NaphClean home care</span></a>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Services</p>
+        <h2>Dedicated people who work inside your tools</h2>
+        <p class="lede">Each agent is assigned to your account, logs in to your systems and follows your process. You pay by the hour, invoiced weekly, fortnightly or monthly.</p>
+      </div>
+      <div class="svc-groups">
+        <div class="svc">
+          <div class="side"><h3>Customer service</h3><p>Every channel your customers use, answered in your voice.</p></div>
+          <ul>
+            <li><strong>Email support</strong><span>Timely, accurate replies to customer questions and issues.</span></li>
+            <li><strong>Live chat support</strong><span>Real-time help on your website or app.</span></li>
+            <li><strong>Inbound and outbound calls</strong><span>Answering your lines and making follow-up calls.</span></li>
+            <li><strong>Back-office support</strong><span>Data entry, record keeping, reporting and daily admin.</span></li>
+          </ul>
+        </div>
+        <div class="svc">
+          <div class="side"><h3>Sales support</h3><p>A fuller pipeline without adding headcount at home.</p></div>
+          <ul>
+            <li><strong>Lead generation</strong><span>Finding and qualifying prospects that fit your market.</span></li>
+            <li><strong>Cold calling</strong><span>Introducing your products or services by phone.</span></li>
+            <li><strong>Pipeline management</strong><span>Tracking leads and opportunities in your CRM.</span></li>
+            <li><strong>Appointment setting</strong><span>Booking meetings between your team and prospects.</span></li>
+            <li><strong>Sales research and reporting</strong><span>Turning sales data into clear weekly insight.</span></li>
+            <li><strong>Market research</strong><span>Gathering facts about target markets before you commit.</span></li>
+          </ul>
+        </div>
+        <div class="svc">
+          <div class="side"><h3>E-commerce support</h3><p>We run our own Amazon brand, so we know the work from the inside.</p></div>
+          <ul>
+            <li><strong>Listings and inventory</strong><span>Detailed product listings and accurate stock levels.</span></li>
+            <li><strong>Order fulfilment</strong><span>Order processing, shipping labels and tracking updates.</span></li>
+            <li><strong>Reviews and ratings</strong><span>Monitoring and answering reviews to protect your brand.</span></li>
+            <li><strong>Store management</strong><span>Shopify, WooCommerce and Amazon Seller Central administration.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="logistics" class="band">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Logistics operations</p>
+        <h2>Freight and delivery teams for US brokers, carriers and last-mile networks</h2>
+        <p class="lede">Our dispatchers work US hours on US systems today, for freight brokerages and a last-mile delivery network. They join your team, use your load boards and phones, and report the way you already do.</p>
+      </div>
+      <div class="lanes">
+        <div class="lane">
+          <h3>Brokerage support</h3>
+          <p>Posting loads, finding and booking carriers, vetting them before dispatch and keeping the load book current.</p>
+          <div class="tags"><span class="tag">Load posting</span><span class="tag">Carrier sourcing</span><span class="tag">Carrier vetting</span><span class="tag">Rate confirmations</span></div>
+        </div>
+        <div class="lane">
+          <h3>Track and trace</h3>
+          <p>Check calls, live location updates, appointment follow-up and proof of delivery, with customer updates sent on time.</p>
+          <div class="tags"><span class="tag">Check calls</span><span class="tag">ETAs</span><span class="tag">POD capture</span><span class="tag">Exception alerts</span></div>
+        </div>
+        <div class="lane">
+          <h3>Last-mile dispatch</h3>
+          <p>Route monitoring from dispense to final stop, driver follow-up, returns and end-of-day reporting for delivery networks.</p>
+          <div class="tags"><span class="tag">Route monitoring</span><span class="tag">Driver support</span><span class="tag">Returns</span><span class="tag">EOD reports</span></div>
+        </div>
+      </div>
+      <p class="shifts"><span><b>Night</b> 21:55 to 06:30 IST</span><span><b>Day</b> 05:55 to 14:30 IST</span><span><b>Coverage</b> ET, CT and PT working hours</span></p>
+    </div>
+  </section>
+
+  <section id="software">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Software by Lumisha LLC</p>
+        <h2>Tools we built for our own teams, now available to yours</h2>
+        <p class="lede">Every product started as something our dispatchers needed on shift. Together they form one toolkit for freight brokers: calling, driver tracking and fast typing.</p>
+      </div>
+      <div class="prods">
+        <article class="prod">
+          <div class="row"><span class="name">SMSLocate</span><span class="pill live">Live</span></div>
+          <p class="tagline">Text to Track. Locate Any Truck. Deliver Confidence.</p>
+          <p class="d">Driver visibility over plain SMS for brokers, carriers and 3PLs. No app for the driver to install.</p>
+          <ul><li>One-tap live location with ETAs</li><li>Arrival verification and automatic POD</li><li>Two-way messaging with auto-translate</li></ul>
+          <div class="foot"><span class="meta">Plans from $29 / month</span><a href="https://smslocate.com" target="_blank" rel="noopener">smslocate.com</a></div>
+        </article>
+        <article class="prod">
+          <div class="row"><span class="name">Trexpanda</span><span class="pill beta">Beta</span></div>
+          <p class="tagline">Type Less. Do More.</p>
+          <p class="d">A text expander for Windows and macOS. Type a short trigger and get the full text, in any app.</p>
+          <ul><li>Shared snippet library for the whole team</li><li>Smart tokens for date, time and cursor</li><li>Native installers with automatic updates</li></ul>
+          <div class="foot"><span class="meta">Free during beta</span><a href="https://trexpanda.com" target="_blank" rel="noopener">trexpanda.com</a></div>
+        </article>
+        <article class="prod">
+          <div class="row"><span class="name">RingJust</span><span class="pill soon">Early access</span></div>
+          <p class="tagline">Just Ring.</p>
+          <p class="d">Cloud calling for freight brokerages, priced below the big dialers, with a built-in CRM for click-to-call, SMS and call logging.</p>
+          <ul><li>US and Canada calling</li><li>Local numbers and team seats</li><li>CRM on the same login</li></ul>
+          <div class="foot"><span class="meta">Ask for early access</span><a href="https://ringjust.com" target="_blank" rel="noopener">ringjust.com</a></div>
+        </article>
+        <article class="prod">
+          <div class="row"><span class="name">LoadPilot</span><span class="pill soon">Coming soon</span></div>
+          <p class="tagline">Your AI freight brokerage copilot.</p>
+          <p class="d">The dispatcher dashboard our brokerage teams use every shift: one sign-in across load books, carrier replies and load board posting.</p>
+          <ul><li>Search and match open loads fast</li><li>Carrier replies parsed into the load</li><li>Clean load board posting files</li></ul>
+          <div class="foot"><span class="meta">Join the waitlist</span><a href="#contact">Contact us</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="naphclean" style="padding-top:0">
+    <div class="wrap">
+      <div class="goods">
+        <div>
+          <p class="eyebrow">Consumer products</p>
+          <h2 style="margin-top:12px">NaphClean naphthalene balls</h2>
+          <p class="lede" style="margin-top:14px">Our home care brand. Lab-tested naphthalene balls that keep wardrobes, drawers and bathrooms fresh and free of moths and insects. Made and shipped from Kolkata, sold across India.</p>
+          <div class="links">
+            <a class="btn primary" href="https://naphclean.com" target="_blank" rel="noopener">Shop naphclean.com</a>
+            <a class="btn ghost" href="https://www.amazon.in/s?k=NaphClean" target="_blank" rel="noopener">Find us on Amazon.in</a>
+          </div>
+          <p class="fine">Classic White and Multicolour. Bulk and trade orders welcome.</p>
+        </div>
+        <div>
+          <div class="sizes">
+            <div class="size"><div class="g">50g</div><div class="p">from ₹40</div></div>
+            <div class="size"><div class="g">100g</div><div class="p">from ₹74</div></div>
+            <div class="size"><div class="g">200g</div><div class="p">from ₹109</div></div>
+            <div class="size"><div class="g">400g</div><div class="p">from ₹179</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" style="padding-top:0">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">Working with us</p><h2>From first call to a full team</h2></div>
+      <div class="steps">
+        <div class="step"><span class="n">Step 1</span><h3>Talk it through</h3><p>A 15-minute call about the work, the hours and the tools you use.</p></div>
+        <div class="step"><span class="n">Step 2</span><h3>Meet your agents</h3><p>We shortlist and train people for your process before day one.</p></div>
+        <div class="step"><span class="n">Step 3</span><h3>Go live on your hours</h3><p>Agents sign in to your systems and post shift sign-ins and sign-offs.</p></div>
+        <div class="step"><span class="n">Step 4</span><h3>Clear invoicing</h3><p>Hours itemised per agent, billed in USD from our US or India entity.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" style="padding-top:0">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">What clients say</p><h2>Trusted by owners who needed an extra pair of hands</h2></div>
+      <div class="quotes">
+        <blockquote><p>They quickly adapted to my workflow and fit into my daily tasks. Their professionalism, adaptability and dedication make them an exceptional choice.</p><cite>CEO, shipping and logistics brand · Virtual sales assistant</cite></blockquote>
+        <blockquote><p>A self-starter that does great work without management. They brought new ideas to the table and are helping streamline my business operations.</p><cite>Owner, e-commerce store · Virtual assistant</cite></blockquote>
+        <blockquote><p>Amit is very professional, trustworthy and an excellent communicator. If you need to source something from India, he is the right person for the job.</p><cite>Owner, online flower store · Sourcing and business trip support</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="careers" style="padding-top:0">
+    <div class="wrap careers">
+      <div>
+        <p class="eyebrow">Careers in Kolkata</p>
+        <h2 style="margin-top:12px">Work with US clients from our Kolkata office</h2>
+        <p class="lede" style="margin-top:14px">We hire dispatchers, customer support executives and cold calling agents for on-site roles. Freshers are welcome, and we offer internships and full-time positions.</p>
+        <div class="contact-cta"><a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfH6t5pjB23G_scf-67Lcc3d0KCcnilfXPSdAf7yHx1F5rpng/viewform" target="_blank" rel="noopener">Apply now</a></div>
+      </div>
+      <ul class="perks">
+        <li>Training on live US logistics and customer projects</li>
+        <li>Night, day and half-day shifts</li>
+        <li>On-time attendance bonus</li>
+        <li>A DPIIT-recognised startup that is growing fast</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">Contact</p><h2>Two offices, one team</h2></div>
+      <div class="offices">
+        <div class="office">
+          <span class="entity">India · Lumisha India Private Limited</span>
+          <h3>Kolkata</h3>
+          <dl>
+            <dt>Address</dt><dd>16 Golaghata Road, Ground Floor, Kolkata 700048, West Bengal</dd>
+            <dt>Phone</dt><dd><a href="tel:+913335980152">+91 33 3598 0152</a></dd>
+            <dt>Email</dt><dd><a href="mailto:info@lumisha.in">info@lumisha.in</a></dd>
+            <dt>Hours</dt><dd>Mon to Fri, 9am to 5pm IST</dd>
+          </dl>
+        </div>
+        <div class="office">
+          <span class="entity">USA · Lumisha LLC</span>
+          <h3>Dover, Delaware</h3>
+          <dl>
+            <dt>Address</dt><dd>8 The Green, STE A, Dover, DE 19901</dd>
+            <dt>Phone</dt><dd><a href="tel:+16204224115">+1 (620) 422-4115</a></dd>
+            <dt>Email</dt><dd><a href="mailto:info@lumisha.in">info@lumisha.in</a></dd>
+            <dt>Hours</dt><dd>Mon to Fri, 9am to 5pm ET</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="contact-cta">
+        <a class="btn primary" href="https://calendly.com/amitrodaindia/15min" target="_blank" rel="noopener">Book a 15-minute call</a>
+        <a class="btn ghost" href="mailto:info@lumisha.in?subject=Enquiry%20from%20lumisha.in">Email us</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Lumisha India Private Limited and Lumisha LLC. Lets work.</span>
+    <nav aria-label="Footer">
+      <a href="#careers">Careers</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var zones=[["c-ist","Asia/Kolkata"],["c-et","America/New_York"],["c-ct","America/Chicago"],["c-pt","America/Los_Angeles"]];
+  function tick(){
+    var now=new Date();
+    zones.forEach(function(z){
+      var el=document.getElementById(z[0]); if(!el) return;
+      try{el.textContent=now.toLocaleTimeString("en-US",{timeZone:z[1],hour:"numeric",minute:"2-digit"});}catch(e){}
+    });
+    try{
+      var d=now.toLocaleDateString("en-US",{timeZone:"America/Chicago",weekday:"short"});
+      var s=document.getElementById("c-status");
+      if(s) s.textContent=(d==="Sat"||d==="Sun")?"Weekend coverage on request":"Teams on shift for US business hours today";
+    }catch(e){}
+  }
+  tick(); setInterval(tick,30000);
+  var y=document.getElementById("yr"); if(y) y.textContent=new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>

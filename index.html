@@ -196,7 +196,32 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center}
 footer nav{display:flex;gap:18px}
 footer a{text-decoration:none}
+
+/* theme toggle */
+.hdr-r{display:flex;align-items:center;gap:10px}
+.theme{width:40px;height:40px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer;padding:0}
+.theme .moon{display:none}
+:root[data-theme="dark"] .theme .sun{display:none}
+:root[data-theme="dark"] .theme .moon{display:block}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .theme .sun{display:none}:root:not([data-theme="light"]) .theme .moon{display:block}}
+@media (max-width:420px){.top .btn.primary{display:none}}
+/* connect */
+.connect{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:22px}
+.ch{display:flex;align-items:center;gap:12px;padding:16px;border-radius:16px;background:var(--surface);border:1px solid var(--line);text-decoration:none}
+.ch:hover{border-color:var(--sun)}
+.ch .ico{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;color:#fff;flex:none}
+.ch b{display:block;font-size:.98rem}
+.ch small{color:var(--muted);font-size:.82rem}
+.wa .ico{background:#25D366}.li .ico{background:#0A66C2}.em .ico{background:var(--sun)}.ca .ico{background:#C9821F}.ph2 .ico{background:#5A6275}
+@media (max-width:1000px){.connect{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:460px){.connect{grid-template-columns:1fr}}
+.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;align-items:center;gap:8px;background:#25D366;color:#fff;text-decoration:none;font-weight:600;padding:12px 16px;border-radius:999px;box-shadow:0 12px 30px -10px rgba(0,0,0,.45)}
+.fab:hover{filter:brightness(1.05)}
+@media (max-width:600px){.fab span{display:none}.fab{padding:14px}}
+footer .soc{display:flex;gap:10px}
+footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--line);display:grid;place-items:center;color:var(--ink)}
 </style>
+<script>try{var t=localStorage.getItem("lumisha-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
 </head>
 <body>
 <header class="top">
@@ -211,7 +236,13 @@ footer a{text-decoration:none}
       <a href="#careers">Careers</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="btn primary" href="https://calendly.com/amitrodaindia/15min" target="_blank" rel="noopener">Book a call</a>
+    <div class="hdr-r">
+      <button class="theme" id="themeBtn" type="button" aria-label="Switch between light and dark theme" title="Light or dark theme">
+        <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a class="btn primary" href="https://calendly.com/amitrodaindia/15min" target="_blank" rel="noopener">Book a call</a>
+    </div>
   </div>
 </header>
 
@@ -404,7 +435,14 @@ footer a{text-decoration:none}
 
   <section id="contact" style="padding-top:0">
     <div class="wrap">
-      <div class="head"><p class="eyebrow">Contact</p><h2>Two offices, one team</h2></div>
+      <div class="head"><p class="eyebrow">Contact</p><h2>Talk to us your way</h2></div>
+      <div class="connect">
+        <a class="ch wa" href="https://wa.me/919674224115?text=Hi%20Lumisha%2C%20I%20found%20you%20on%20lumisha.in%20and%20would%20like%20to%20talk." target="_blank" rel="noopener"><span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3z"/></svg></span><span><b>WhatsApp</b><small>+91 96742 24115</small></span></a>
+        <a class="ch li" href="https://www.linkedin.com/company/lumisha-india-private-limited" target="_blank" rel="noopener"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zm7 0h3.8v1.5h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6v5.5h-4v-4.9c0-1.2 0-2.7-1.6-2.7s-1.9 1.3-1.9 2.6v5H10z"/></svg></span><span><b>LinkedIn</b><small>Follow Lumisha</small></span></a>
+        <a class="ch em" href="mailto:info@lumisha.in?subject=Enquiry%20from%20lumisha.in"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><b>Email</b><small>info@lumisha.in</small></span></a>
+        <a class="ch ph2" href="tel:+16204224115"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><span><b>Call US office</b><small>+1 (620) 422-4115</small></span></a>
+        <a class="ch ca" href="https://calendly.com/amitrodaindia/15min" target="_blank" rel="noopener"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span><b>Book a call</b><small>15 minutes, free</small></span></a>
+      </div>
       <div class="offices">
         <div class="office">
           <span class="entity">India · Lumisha India Private Limited</span>
@@ -427,10 +465,6 @@ footer a{text-decoration:none}
           </dl>
         </div>
       </div>
-      <div class="ctas">
-        <a class="btn primary" href="https://calendly.com/amitrodaindia/15min" target="_blank" rel="noopener">Book a 15-minute call</a>
-        <a class="btn ghost" href="mailto:info@lumisha.in?subject=Enquiry%20from%20lumisha.in">Email us</a>
-      </div>
     </div>
   </section>
 </main>
@@ -438,9 +472,10 @@ footer a{text-decoration:none}
 <footer>
   <div class="wrap">
     <span>© <span id="yr">2026</span> Lumisha India Private Limited and Lumisha LLC. Lets work.</span>
-    <nav aria-label="Footer"><a href="#careers">Careers</a><a href="#contact">Contact</a></nav>
+    <div class="soc"><a href="https://wa.me/919674224115?text=Hi%20Lumisha%2C%20I%20found%20you%20on%20lumisha.in%20and%20would%20like%20to%20talk." target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3z"/></svg></a><a href="https://www.linkedin.com/company/lumisha-india-private-limited" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zm7 0h3.8v1.5h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6v5.5h-4v-4.9c0-1.2 0-2.7-1.6-2.7s-1.9 1.3-1.9 2.6v5H10z"/></svg></a><a href="mailto:info@lumisha.in" aria-label="Email"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a></div>
   </div>
 </footer>
+<a class="fab" href="https://wa.me/919674224115?text=Hi%20Lumisha%2C%20I%20found%20you%20on%20lumisha.in%20and%20would%20like%20to%20talk." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3z"/></svg><span>Chat on WhatsApp</span></a>
 
 <script>
 (function(){
@@ -471,6 +506,14 @@ footer a{text-decoration:none}
   tick(); setInterval(tick,30000);
   var v=document.querySelector('.band video');
   if(v && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){ v.removeAttribute('autoplay'); v.pause(); }
+  var tb=document.getElementById("themeBtn");
+  if(tb) tb.addEventListener("click",function(){
+    var r=document.documentElement, cur=r.getAttribute("data-theme");
+    if(!cur){ cur=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light"; }
+    var next=cur==="dark"?"light":"dark";
+    r.setAttribute("data-theme",next);
+    try{localStorage.setItem("lumisha-theme",next);}catch(e){}
+  });
   var y=document.getElementById("yr"); if(y) y.textContent=new Date().getFullYear();
 })();
 </script>

@@ -273,6 +273,47 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
 .tile .ph img,.lane .ph img{transition:transform .5s ease}
 .tile:hover .ph img,.lane:hover .ph img{transform:scale(1.04)}
 @media (prefers-reduced-motion: reduce){.js .rv{opacity:1;transform:none}}
+
+/* feature rows */
+.feature{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center;margin-top:40px}
+.feature.flip .ph{order:2}
+.feature .ph.big{aspect-ratio:4/5;border-radius:26px;max-height:600px;box-shadow:0 30px 60px -40px rgba(0,0,0,.45)}
+.fh{font-family:var(--display);font-weight:700;font-size:clamp(1.35rem,2.4vw,1.8rem);line-height:1.2;margin-top:10px}
+.ftxt .lede{margin-top:14px}
+.checks{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:16px 24px}
+.checks li{display:flex;gap:12px;align-items:flex-start}
+.checks .ok{flex:none;width:30px;height:30px;border-radius:10px;background:var(--sun-soft);color:var(--sun);display:grid;place-items:center}
+.checks b{display:block;font-weight:600}
+.checks span:not(.ok){color:var(--muted);font-size:.9rem}
+@media (max-width:860px){.feature{grid-template-columns:1fr;gap:24px}.feature.flip .ph{order:0}.feature .ph.big{aspect-ratio:4/3}.checks{grid-template-columns:1fr}}
+/* ecommerce */
+.lede a{color:var(--sun);font-weight:600}
+.ecom{display:grid;grid-template-columns:1.3fr 1fr;gap:18px}
+.ecom .ph.wide{aspect-ratio:3/2;border-radius:24px}
+.tag{position:absolute;left:16px;bottom:16px;background:rgba(12,15,21,.8);color:#fff;font-family:var(--mono);font-size:.76rem;padding:7px 12px;border-radius:999px}
+.ecards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ec{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:6px}
+.ec .n{font-family:var(--mono);font-size:.78rem;color:var(--sun)}
+.ec b{font-size:1.05rem}
+.ec span:last-child{color:var(--muted);font-size:.9rem}
+.proof{display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:18px;margin-top:18px;align-items:stretch}
+.proof .ph{aspect-ratio:1/1;border-radius:20px}
+.ptxt{background:var(--sun-soft);border-radius:20px;padding:28px;display:flex;flex-direction:column;justify-content:center}
+@media (max-width:980px){.ecom{grid-template-columns:1fr}.proof{grid-template-columns:1fr 1fr}.ptxt{grid-column:1/-1}}
+@media (max-width:480px){.ecards{grid-template-columns:1fr}}
+/* sourcing */
+.src{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:44px}
+.steps2{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:14px}
+.steps2 li{display:flex;gap:14px;align-items:flex-start}
+.steps2 li>span{flex:none;width:34px;height:34px;border-radius:50%;background:var(--night);color:var(--glow);display:grid;place-items:center;font-family:var(--mono);font-size:.9rem}
+.steps2 b{display:block}
+.steps2 em{font-style:normal;color:var(--muted);font-size:.92rem}
+.sside{position:relative}
+.sside .ph{aspect-ratio:4/5;border-radius:22px}
+.sq{position:absolute;left:-36px;bottom:28px;right:28px;background:var(--night);color:var(--night-ink);border:0;border-radius:16px;padding:18px 20px;box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
+.sq p{font-size:.98rem}
+.sq cite{color:var(--glow);font-size:.82rem}
+@media (max-width:900px){.src{grid-template-columns:1fr;padding:26px}.sq{position:relative;left:auto;right:auto;bottom:auto;margin:-40px 14px 0}}
 </style>
 <script>try{var t=localStorage.getItem("lumisha-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
 </head>
@@ -282,11 +323,12 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
   <div class="wrap">
     <a class="brand" href="#main" aria-label="Lumisha home"><img src="logo.webp" alt="Lumisha" width="157" height="40"></a>
     <nav class="nav" aria-label="Main">
-      <a href="#why">Why Lumisha</a>
+      <a href="#why">Why us</a>
       <a href="#services">Services</a>
       <a href="#logistics">Logistics</a>
+      <a href="#ecommerce">E-commerce</a>
+      <a href="#sourcing">Sourcing</a>
       <a href="#software">Software</a>
-      <a href="#naphclean">NaphClean</a>
       <a href="#careers">Careers</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -303,7 +345,7 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
   </div>
 </header>
 <nav class="mnav" id="mnav" aria-label="Mobile">
-  <a href="#why">Why Lumisha</a><a href="#services">Services</a><a href="#logistics">Logistics</a><a href="#software">Software</a><a href="#naphclean">NaphClean</a><a href="#careers">Careers</a><a href="#quote">Get a quote</a><a href="#contact">Contact</a>
+  <a href="#why">Why Lumisha</a><a href="#services">Services</a><a href="#logistics">Logistics</a><a href="#ecommerce">E-commerce</a><a href="#sourcing">Sourcing</a><a href="#software">Software</a><a href="#careers">Careers</a><a href="#quote">Get a quote</a><a href="#contact">Contact</a>
 </nav>
 
 <main id="main">
@@ -312,7 +354,7 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
       <div>
         <p class="eyebrow">Lumisha India Private Limited · Lumisha LLC</p>
         <h1 style="margin-top:14px">You focus on the big picture. <em>We handle the heavy lifting.</em></h1>
-        <p class="lede">A trained team that runs your day-to-day work in your own tools, around the clock, with little or no supervision.</p>
+        <p class="lede">Running a business is exhausting when every call, email and order lands on you. Our trained team quietly takes over the day-to-day, in your own tools, around the clock, so you can breathe and plan what comes next.</p>
         <div class="ctas">
           <a class="btn primary" href="https://calendly.com/amitrodaindia/15min" target="_blank" rel="noopener">Book a 15-minute call</a>
           <a class="btn ghost" href="#services">See what we do</a>
@@ -348,25 +390,25 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
     <div class="wrap">
       <div class="head">
         <p class="eyebrow">Why Lumisha</p>
-        <h2>Stop running the business on your own time</h2>
+        <h2>You started this business to grow it, not to be buried in it</h2>
       </div>
       <div class="pf rv">
         <div class="col no">
           <span class="k">Without us</span>
           <ul>
-            <li>You answer every call and email yourself</li>
-            <li>Work stops when the office closes</li>
-            <li>Hiring takes weeks and a full salary</li>
-            <li>Someone quits, the knowledge leaves</li>
+            <li>Late nights answering calls and emails yourself</li>
+            <li>Customers waiting while your office is closed</li>
+            <li>Weeks spent hiring, and a salary before any results</li>
+            <li>Starting over every time someone leaves</li>
           </ul>
         </div>
         <div class="col yes">
           <span class="k">With Lumisha</span>
           <ul>
-            <li>A trained team owns the daily work</li>
-            <li>Covered 24/7, nights and weekends too</li>
-            <li>Scale up in days, pay by the hour</li>
-            <li>Your process is written down and kept</li>
+            <li>A team that cares about your customers like you do</li>
+            <li>Someone is always there, 24/7, weekends included</li>
+            <li>Help in days, paid by the hour, no long contract</li>
+            <li>Your way of working, written down and protected</li>
           </ul>
         </div>
       </div>
@@ -377,28 +419,36 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
     <div class="wrap">
       <div class="head">
         <p class="eyebrow">Services</p>
-        <h2>Everything we take off your plate</h2>
+        <h2>The work that keeps you up at night, handled with care</h2>
+        <p class="lede">We know what it feels like when calls go unanswered and follow-ups slip. Let us carry that weight, so you can get back to growing.</p>
       </div>
-      <p class="grp">Customer service</p>
-      <div class="tiles rv" data-g="cs">
-        <div class="tile"><div class="ph"><img src="img/calls.webp" alt="Agent on a phone call" loading="lazy"><div class="cap"><h3>Inbound and outbound calls</h3><p>Your lines answered, calls returned</p></div></div></div>
-        <div class="tile"><div class="ph"><img src="img/email.webp" alt="Keyboard with email, phone and chat keys" loading="lazy"><div class="cap"><h3>Email support</h3><p>Every inbox cleared, every day</p></div></div></div>
-        <div class="tile"><div class="ph"><img src="img/chat.webp" alt="Agents working on live chat" loading="lazy"><div class="cap"><h3>Live chat</h3><p>Real-time help on your site</p></div></div></div>
-        <div class="tile"><div class="ph"><img src="img/schedule.webp" alt="Agent updating a schedule" loading="lazy"><div class="cap"><h3>Back office</h3><p>Data entry, records and admin</p></div></div></div>
+      <div class="feature rv">
+        <div class="ph big"><img src="img/svc-cs.webp" alt="Lumisha support agents helping customers on chat and email" loading="lazy" width="820" height="1025"></div>
+        <div class="ftxt">
+          <p class="eyebrow">Customer service</p>
+          <h3 class="fh">Every customer gets an answer. You get your evenings back.</h3>
+          <p class="lede">We reply in your brand's voice, day or night, so no one feels ignored and nothing waits for you to wake up.</p>
+          <ul class="checks">
+            <li><span class="ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>Inbound and outbound calls</b><span>Your lines answered, calls returned</span></div></li>
+            <li><span class="ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>Email support</b><span>Inboxes cleared every shift</span></div></li>
+            <li><span class="ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>Live chat</b><span>Real-time help on your site</span></div></li>
+            <li><span class="ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>Back office</b><span>Data entry, records and admin</span></div></li>
+          </ul>
+        </div>
       </div>
-      <p class="grp">Sales</p>
-      <div class="tiles rv" data-g="sales">
-        <div class="tile"><div class="ph"><img src="img/leads.webp" alt="Sales team" loading="lazy"><div class="cap"><h3>Lead generation</h3><p>Qualified prospects in your pipeline</p></div></div></div>
-        <div class="tile"><div class="ph"><img src="img/calls.webp" alt="Cold calling agent" loading="lazy"><div class="cap"><h3>Cold calling</h3><p>First conversations, done for you</p></div></div></div>
-        <div class="tile"><div class="ph"><img src="img/deals.webp" alt="Handshake after a meeting" loading="lazy"><div class="cap"><h3>Appointment setting</h3><p>Meetings booked on your calendar</p></div></div></div>
-        <div class="tile"><div class="ph"><img src="img/reports.webp" alt="Sales reports on a desk" loading="lazy"><div class="cap"><h3>Pipeline and reporting</h3><p>CRM kept clean, weekly insight</p></div></div></div>
-      </div>
-      <p class="grp">E-commerce</p>
-      <div class="tiles rv" data-g="ecom">
-        <div class="tile"><div class="ph"><img src="img/listings.webp" alt="Online store listings on a laptop" loading="lazy"><div class="cap"><h3>Listings and inventory</h3><p>Accurate products and stock</p></div></div></div>
-        <div class="tile"><div class="ph"><img src="img/fulfilment.webp" alt="Warehouse team checking orders" loading="lazy"><div class="cap"><h3>Order fulfilment</h3><p>Orders processed and tracked</p></div></div></div>
-        <div class="tile"><div class="ph"><img src="img/reviews.webp" alt="Five star rating" loading="lazy"><div class="cap"><h3>Reviews and ratings</h3><p>Every review answered</p></div></div></div>
-        <div class="tile"><div class="ph"><img src="img/store.webp" alt="Managing an online shop" loading="lazy"><div class="cap"><h3>Store management</h3><p>Shopify, WooCommerce, Amazon</p></div></div></div>
+      <div class="feature flip rv">
+        <div class="ph big"><img src="img/svc-sales.webp" alt="Sales agent on a call with a prospect" loading="lazy" width="630" height="787"></div>
+        <div class="ftxt">
+          <p class="eyebrow">Sales support</p>
+          <h3 class="fh">No more leads going cold while you are busy running the business.</h3>
+          <p class="lede">We find the prospects, make the calls and book the meetings. You walk into conversations that are ready to close.</p>
+          <ul class="checks">
+            <li><span class="ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>Lead generation</b><span>Qualified prospects, researched for you</span></div></li>
+            <li><span class="ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>Cold calling</b><span>First conversations, done warmly</span></div></li>
+            <li><span class="ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>Appointment setting</b><span>Meetings on your calendar</span></div></li>
+            <li><span class="ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>Pipeline and reporting</b><span>CRM kept clean, weekly insight</span></div></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -410,7 +460,7 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
       <div class="head" style="margin-bottom:0">
         <p class="eyebrow">Logistics operations</p>
         <h2>Freight and delivery teams for US brokers, carriers and last-mile</h2>
-        <p class="lede">Dispatchers on your load boards and phones, around the clock.</p>
+        <p class="lede">Freight never sleeps, and neither does our team. Dispatchers on your load boards and phones, so you are not the one taking the 2 AM call.</p>
       </div>
       <div class="lanes rv">
         <div class="lane"><div class="ph"><img src="img/dispatch.webp" alt="Dispatcher on the phone beside a truck" loading="lazy"></div><div class="b"><h3>Brokerage support</h3><p>Post loads, book and vet carriers</p></div></div>
@@ -421,12 +471,67 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
     </div>
   </section>
 
+  <section id="ecommerce" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">E-commerce operations</p>
+        <h2>We run our own online brand. We can take the load off yours.</h2>
+        <p class="lede">We built and run <a href="https://naphclean.com" target="_blank" rel="noopener">NaphClean</a>, our home care brand sold on Amazon India and our own store. Every order, every shelf and every supplier is handled by our team, and the same people can do it for you.</p>
+      </div>
+      <div class="ecom rv">
+        <div class="ph wide"><img src="img/ecom-warehouse.webp" alt="Warehouse team checking stock and orders" loading="lazy" width="1230" height="820"><span class="tag">Warehousing and fulfilment</span></div>
+        <div class="ecards">
+          <div class="ec"><span class="n">01</span><b>E-commerce operations</b><span>Listings, pricing, marketplace accounts and customer messages</span></div>
+          <div class="ec"><span class="n">02</span><b>Warehousing</b><span>Inbound stock, storage and accurate inventory counts</span></div>
+          <div class="ec"><span class="n">03</span><b>Order fulfilment</b><span>Pick, pack, ship, tracking and returns</span></div>
+          <div class="ec"><span class="n">04</span><b>Vendor management</b><span>Suppliers, packaging, reorders and payments followed up</span></div>
+        </div>
+      </div>
+      <div class="proof rv">
+        <div class="ph"><img src="img/naphclean.webp" alt="NaphClean 400g multicolour pack" loading="lazy"></div>
+        <div class="ph"><img src="img/naphclean-2.webp" alt="NaphClean 100g pack on a shelf" loading="lazy"></div>
+        <div class="ptxt">
+          <p class="eyebrow">Proof, not promises</p>
+          <h3 class="fh">NaphClean, run end to end by Lumisha</h3>
+          <p class="lede">From suppliers and stock to the parcel at the customer's door. Available in 50g to 400g packs, White and Multicolour.</p>
+          <div class="ctas" style="margin-top:14px">
+            <a class="btn primary" href="https://naphclean.com" target="_blank" rel="noopener">Visit naphclean.com</a>
+            <a class="btn ghost" href="https://www.amazon.in/s?k=NaphClean" target="_blank" rel="noopener">See it on Amazon.in</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sourcing" style="padding-top:0">
+    <div class="wrap">
+      <div class="src rv">
+        <div class="stxt">
+          <p class="eyebrow">Product sourcing from India</p>
+          <h2 style="margin-top:12px">Buying from India should feel safe, not like a gamble.</h2>
+          <p class="lede" style="margin-top:14px">Finding a reliable manufacturer from overseas is stressful. We are on the ground in India, so you get someone you can trust at every step.</p>
+          <ol class="steps2">
+            <li><span>1</span><div><b>Find the right suppliers</b><em>Verified manufacturers matched to your product and budget</em></div></li>
+            <li><span>2</span><div><b>Samples and pricing</b><em>We collect samples and negotiate on your behalf</em></div></li>
+            <li><span>3</span><div><b>Quality checks</b><em>Factory visits and inspections before anything ships</em></div></li>
+            <li><span>4</span><div><b>Packing and export</b><em>Labelling, paperwork and shipping coordinated to your door</em></div></li>
+          </ol>
+          <div class="ctas"><a class="btn primary" href="https://wa.me/919674224115?text=Hi%20Lumisha%2C%20I%20want%20to%20source%20a%20product%20from%20India." target="_blank" rel="noopener">Tell us what you need</a></div>
+        </div>
+        <div class="sside">
+          <div class="ph"><img src="img/sourcing.webp" alt="Handshake after agreeing a supply deal" loading="lazy" width="503" height="628"></div>
+          <blockquote class="sq"><p>If you need to source something from India, he is the right person for the job.</p><cite>Owner, online flower store</cite></blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="hands-off">
     <div class="wrap hands">
       <div class="ph"><img src="img/team.webp" alt="Lumisha team planning work together" loading="lazy" width="800" height="1200"></div>
       <div>
         <p class="eyebrow">How it works</p>
-        <h2 style="margin-top:12px">We run it. You barely need to check.</h2>
+        <h2 style="margin-top:12px">Peace of mind, without looking over our shoulder</h2>
         <ol class="flow rv">
           <li><span class="i" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h9l3 3v15H6z"/><path d="M9 11h6M9 15h6"/></svg></span><div><b>We write your playbook</b><span>Your process, documented before day one</span></div></li>
           <li><span class="i" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>We own every shift</b><span>Inbox, calls, orders and loads cleared</span></div></li>
@@ -450,27 +555,6 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
         <a class="prod" href="https://ringjust.com" target="_blank" rel="noopener"><img src="img/ringjust.png" alt=""><span class="n">RingJust</span><p>Cloud calling and CRM for brokers.</p><span class="go">ringjust.com</span></a>
         <a class="prod" href="https://trexpanda.com" target="_blank" rel="noopener"><img src="img/trexpanda.png" alt=""><span class="n">Trexpanda</span><p>Type less. Shared team snippets.</p><span class="go">trexpanda.com</span></a>
         <a class="prod" href="#contact"><span class="lp" aria-hidden="true">LP</span><span class="n">LoadPilot</span><p>AI copilot for freight brokerages.</p><span class="go">Coming soon</span></a>
-      </div>
-    </div>
-  </section>
-
-  <section id="naphclean" style="padding-top:0">
-    <div class="wrap">
-      <div class="goods rv">
-        <div class="txt">
-          <p class="eyebrow">Consumer products</p>
-          <h2>NaphClean</h2>
-          <p class="lede">Lab-tested naphthalene balls for fresh, moth-free wardrobes. Made in Kolkata, sold across India.</p>
-          <div class="sizes"><span>50g</span><span>100g</span><span>200g</span><span>400g</span><span>White and Multicolour</span></div>
-          <div class="ctas" style="margin-top:6px">
-            <a class="btn primary" href="https://naphclean.com" target="_blank" rel="noopener">Shop naphclean.com</a>
-            <a class="btn ghost" href="https://www.amazon.in/s?k=NaphClean" target="_blank" rel="noopener">Amazon.in</a>
-          </div>
-        </div>
-        <div class="pics">
-          <div class="ph"><img src="img/naphclean.webp" alt="NaphClean 400g multicolour pack" loading="lazy"></div>
-          <div class="ph"><img src="img/naphclean-2.webp" alt="NaphClean 100g pack on a shelf" loading="lazy"></div>
-        </div>
       </div>
     </div>
   </section>
@@ -507,7 +591,7 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
       <div class="quote rv">
         <div>
           <p class="eyebrow">Get a quote</p>
-          <h2 style="margin-top:12px">Tell us what to take off your plate</h2>
+          <h2 style="margin-top:12px">Tell us what is weighing on you</h2>
           <p class="lede" style="margin-top:12px">Share a few details and we will reply with a plan and hourly pricing.</p>
           <ul><li>Reply within one business day</li><li>No long contract</li><li>Start with one agent, scale any time</li></ul>
         </div>
@@ -516,7 +600,7 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
           <label>Company<input id="q-co" name="company" autocomplete="organization" placeholder="Acme Logistics"></label>
           <label>Email or phone<input id="q-contact" name="contact" autocomplete="email" placeholder="jane@acme.com"></label>
           <label>What do you need?<select id="q-svc" name="service">
-            <option>Customer service</option><option>Sales support</option><option>E-commerce support</option><option>Freight dispatch / brokerage</option><option>Last-mile dispatch</option><option>Back office</option><option>Software (SMSLocate, RingJust, Trexpanda)</option><option>Something else</option>
+            <option>Customer service</option><option>Sales support</option><option>E-commerce operations</option><option>Warehousing and fulfilment</option><option>Product sourcing from India</option><option>Freight dispatch / brokerage</option><option>Last-mile dispatch</option><option>Back office</option><option>Software (SMSLocate, RingJust, Trexpanda)</option><option>Something else</option>
           </select></label>
           <label>How many people?<select id="q-size" name="size"><option>1 agent</option><option>2 to 5</option><option>6 to 10</option><option>10+</option><option>Not sure yet</option></select></label>
           <label>Hours needed<select id="q-hours" name="hours"><option>US business hours</option><option>Nights / after hours</option><option>24/7</option><option>Weekends</option></select></label>

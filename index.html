@@ -7,10 +7,18 @@
 <meta name="description" content="Lumisha gives you a trained team for customer service, sales, e-commerce and freight dispatch. 24/7, in your tools, with little or no supervision.">
 <meta property="og:title" content="Lumisha">
 <meta property="og:description" content="You focus on the big picture. We handle the heavy lifting. 24/7 offshore teams and software.">
-<meta property="og:image" content="https://lumisha.in/img/hero.webp">
+<meta property="og:image" content="https://lumisha.in/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://lumisha.in/">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://lumisha.in/">
+<meta name="theme-color" content="#1B2130">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preload" as="image" href="img/hero.webp" fetchpriority="high">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://lumisha.in/#org","name":"Lumisha","legalName":"Lumisha India Private Limited","url":"https://lumisha.in/","logo":"https://lumisha.in/logo.webp","email":"info@lumisha.in","slogan":"Lets work.","sameAs":["https://www.linkedin.com/company/lumisha-india-private-limited","https://smslocate.com","https://ringjust.com","https://trexpanda.com","https://naphclean.com"],"contactPoint":[{"@type":"ContactPoint","contactType":"sales","telephone":"+91-9674224115","availableLanguage":["English","Hindi"],"hoursAvailable":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}}]},{"@type":"LocalBusiness","name":"Lumisha India Private Limited","parentOrganization":{"@id":"https://lumisha.in/#org"},"telephone":"+91-33-35980152","email":"info@lumisha.in","image":"https://lumisha.in/img/hero.webp","address":{"@type":"PostalAddress","streetAddress":"16 Golaghata Road, Ground Floor","addressLocality":"Kolkata","postalCode":"700048","addressRegion":"West Bengal","addressCountry":"IN"}},{"@type":"LocalBusiness","name":"Lumisha LLC","parentOrganization":{"@id":"https://lumisha.in/#org"},"telephone":"+1-620-422-4115","email":"info@lumisha.in","image":"https://lumisha.in/img/hero.webp","address":{"@type":"PostalAddress","streetAddress":"8 The Green, STE A","addressLocality":"Dover","postalCode":"19901","addressRegion":"DE","addressCountry":"US"}}]}</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='36' r='14' fill='%23D5382C'/%3E%3Crect x='6' y='52' width='52' height='4' rx='2' fill='%231B2130'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -92,7 +100,7 @@ section{padding-block:80px}
 .clock.you .t{font-size:1.25rem}
 .status{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:.82rem;color:var(--night-muted)}
 .dot{width:8px;height:8px;border-radius:50%;background:#3FBF7F;box-shadow:0 0 0 4px rgba(63,191,127,.2);flex:none}
-@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.visual .ph{aspect-ratio:4/3}.clocks{left:12px;right:12px;width:auto;bottom:-10px}.visual{padding-bottom:60px}}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.visual .ph{aspect-ratio:4/3}.clocks{position:relative;left:auto;bottom:auto;width:auto;margin:-56px 14px 0}.visual{padding-bottom:0}}
 
 /* problem vs fix */
 .pf{display:grid;grid-template-columns:1fr 1fr;gap:18px}
@@ -220,13 +228,59 @@ footer a{text-decoration:none}
 @media (max-width:600px){.fab span{display:none}.fab{padding:14px}}
 footer .soc{display:flex;gap:10px}
 footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--line);display:grid;place-items:center;color:var(--ink)}
+
+/* polish */
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ink);color:var(--paper);padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
+.skip:focus{top:12px}
+.top{transition:box-shadow .2s ease}
+.top.scrolled{box-shadow:0 8px 24px -16px rgba(0,0,0,.35)}
+.menu-btn{display:none;width:40px;height:40px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);place-items:center;cursor:pointer;padding:0}
+.mnav{display:none}
+@media (max-width:900px){
+  .menu-btn{display:grid}
+  .mnav{display:block;position:fixed;inset:64px 0 auto 0;z-index:19;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 18px 18px;transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .18s ease,transform .18s ease}
+  .mnav.open{opacity:1;transform:none;pointer-events:auto}
+  .mnav a{display:block;padding:12px 4px;border-bottom:1px solid var(--line);text-decoration:none;font-weight:600;font-size:1.05rem}
+  .mnav a:last-child{border-bottom:0}
+}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:20px;background:var(--surface);overflow:hidden}
+.fact{padding:22px 24px;border-right:1px solid var(--line)}
+.fact:last-child{border-right:0}
+.fact .v{font-family:var(--display);font-weight:700;font-size:clamp(1.3rem,2.4vw,1.8rem);line-height:1.1}
+.fact .l{color:var(--muted);font-size:.9rem;margin-top:6px}
+@media (max-width:860px){.facts{grid-template-columns:1fr 1fr}.fact:nth-child(2){border-right:0}.fact:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.quote{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:start;background:var(--night);color:var(--night-ink);border-radius:26px;padding:40px}
+.quote .eyebrow{color:var(--glow)}
+.quote .lede{color:var(--night-muted)}
+.quote ul{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.quote li{display:flex;gap:10px}
+.quote li::before{content:"\2713";color:#5FD39A;font-weight:700}
+.qf{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.qf label{display:flex;flex-direction:column;gap:6px;font-size:.85rem;color:var(--night-muted)}
+.qf .full{grid-column:1/-1}
+.qf input,.qf select,.qf textarea{font:inherit;font-size:.97rem;color:#fff;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:12px 14px;width:100%}
+.qf select option{color:#1B2130}
+.qf textarea{min-height:96px;resize:vertical}
+.qf input:focus,.qf select:focus,.qf textarea:focus{outline:2px solid var(--glow);outline-offset:1px;border-color:transparent}
+.qf .acts{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.qf .wa-btn{background:#25D366;color:#fff}
+.qf .em-btn{background:transparent;border-color:rgba(255,255,255,.35);color:#fff}
+.qf .note{grid-column:1/-1;font-size:.82rem;color:var(--night-muted)}
+.qf button.btn{cursor:pointer;font:inherit;font-weight:600;font-size:.95rem}
+@media (max-width:860px){.quote{grid-template-columns:1fr;padding:26px}.qf{grid-template-columns:1fr}}
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.js .rv.in{opacity:1;transform:none}
+.tile .ph img,.lane .ph img{transition:transform .5s ease}
+.tile:hover .ph img,.lane:hover .ph img{transform:scale(1.04)}
+@media (prefers-reduced-motion: reduce){.js .rv{opacity:1;transform:none}}
 </style>
 <script>try{var t=localStorage.getItem("lumisha-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Lumisha home"><img src="logo.webp" alt="Lumisha" width="157" height="40"></a>
+    <a class="brand" href="#main" aria-label="Lumisha home"><img src="logo.webp" alt="Lumisha" width="157" height="40"></a>
     <nav class="nav" aria-label="Main">
       <a href="#why">Why Lumisha</a>
       <a href="#services">Services</a>
@@ -242,11 +296,17 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
         <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
       </button>
       <a class="btn primary" href="https://calendly.com/amitrodaindia/15min" target="_blank" rel="noopener">Book a call</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
   </div>
 </header>
+<nav class="mnav" id="mnav" aria-label="Mobile">
+  <a href="#why">Why Lumisha</a><a href="#services">Services</a><a href="#logistics">Logistics</a><a href="#software">Software</a><a href="#naphclean">NaphClean</a><a href="#careers">Careers</a><a href="#quote">Get a quote</a><a href="#contact">Contact</a>
+</nav>
 
-<main id="top">
+<main id="main">
   <div class="wrap hero">
     <div class="hero-grid">
       <div>
@@ -260,7 +320,7 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
         <div class="ticks"><span>24/7 coverage</span><span>Your tools, your process</span><span>Billed by the hour</span></div>
       </div>
       <div class="visual">
-        <div class="ph"><img src="img/hero.webp" alt="Lumisha agent on a headset call at his laptop" width="900" height="1350"></div>
+        <div class="ph"><img src="img/hero.webp" alt="Lumisha agent on a headset call at his laptop" width="900" height="1350" fetchpriority="high" decoding="async"></div>
         <aside class="clocks" aria-label="Time across our coverage zones">
           <p class="lbl">Right now</p>
           <div class="clock you"><span class="city"><small>Your time</small><span id="c-you-name">Your location</span></span><span class="t" id="c-you">--:--</span></div>
@@ -275,13 +335,22 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
     </div>
   </div>
 
-  <section id="why" style="padding-top:24px">
+  <div class="wrap" style="margin-top:-8px">
+    <div class="facts rv">
+      <div class="fact"><div class="v">24/7</div><div class="l">Coverage, weekends and holidays</div></div>
+      <div class="fact"><div class="v">All US zones</div><div class="l">ET, CT, MT and PT</div></div>
+      <div class="fact"><div class="v">India + USA</div><div class="l">Offices in Kolkata and Dover, DE</div></div>
+      <div class="fact"><div class="v">DPIIT</div><div class="l">Recognised startup, Govt. of India</div></div>
+    </div>
+  </div>
+
+  <section id="why">
     <div class="wrap">
       <div class="head">
         <p class="eyebrow">Why Lumisha</p>
         <h2>Stop running the business on your own time</h2>
       </div>
-      <div class="pf">
+      <div class="pf rv">
         <div class="col no">
           <span class="k">Without us</span>
           <ul>
@@ -311,21 +380,21 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
         <h2>Everything we take off your plate</h2>
       </div>
       <p class="grp">Customer service</p>
-      <div class="tiles" data-g="cs">
+      <div class="tiles rv" data-g="cs">
         <div class="tile"><div class="ph"><img src="img/calls.webp" alt="Agent on a phone call" loading="lazy"><div class="cap"><h3>Inbound and outbound calls</h3><p>Your lines answered, calls returned</p></div></div></div>
         <div class="tile"><div class="ph"><img src="img/email.webp" alt="Keyboard with email, phone and chat keys" loading="lazy"><div class="cap"><h3>Email support</h3><p>Every inbox cleared, every day</p></div></div></div>
         <div class="tile"><div class="ph"><img src="img/chat.webp" alt="Agents working on live chat" loading="lazy"><div class="cap"><h3>Live chat</h3><p>Real-time help on your site</p></div></div></div>
         <div class="tile"><div class="ph"><img src="img/schedule.webp" alt="Agent updating a schedule" loading="lazy"><div class="cap"><h3>Back office</h3><p>Data entry, records and admin</p></div></div></div>
       </div>
       <p class="grp">Sales</p>
-      <div class="tiles" data-g="sales">
+      <div class="tiles rv" data-g="sales">
         <div class="tile"><div class="ph"><img src="img/leads.webp" alt="Sales team" loading="lazy"><div class="cap"><h3>Lead generation</h3><p>Qualified prospects in your pipeline</p></div></div></div>
         <div class="tile"><div class="ph"><img src="img/calls.webp" alt="Cold calling agent" loading="lazy"><div class="cap"><h3>Cold calling</h3><p>First conversations, done for you</p></div></div></div>
         <div class="tile"><div class="ph"><img src="img/deals.webp" alt="Handshake after a meeting" loading="lazy"><div class="cap"><h3>Appointment setting</h3><p>Meetings booked on your calendar</p></div></div></div>
         <div class="tile"><div class="ph"><img src="img/reports.webp" alt="Sales reports on a desk" loading="lazy"><div class="cap"><h3>Pipeline and reporting</h3><p>CRM kept clean, weekly insight</p></div></div></div>
       </div>
       <p class="grp">E-commerce</p>
-      <div class="tiles" data-g="ecom">
+      <div class="tiles rv" data-g="ecom">
         <div class="tile"><div class="ph"><img src="img/listings.webp" alt="Online store listings on a laptop" loading="lazy"><div class="cap"><h3>Listings and inventory</h3><p>Accurate products and stock</p></div></div></div>
         <div class="tile"><div class="ph"><img src="img/fulfilment.webp" alt="Warehouse team checking orders" loading="lazy"><div class="cap"><h3>Order fulfilment</h3><p>Orders processed and tracked</p></div></div></div>
         <div class="tile"><div class="ph"><img src="img/reviews.webp" alt="Five star rating" loading="lazy"><div class="cap"><h3>Reviews and ratings</h3><p>Every review answered</p></div></div></div>
@@ -343,7 +412,7 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
         <h2>Freight and delivery teams for US brokers, carriers and last-mile</h2>
         <p class="lede">Dispatchers on your load boards and phones, around the clock.</p>
       </div>
-      <div class="lanes">
+      <div class="lanes rv">
         <div class="lane"><div class="ph"><img src="img/dispatch.webp" alt="Dispatcher on the phone beside a truck" loading="lazy"></div><div class="b"><h3>Brokerage support</h3><p>Post loads, book and vet carriers</p></div></div>
         <div class="lane"><div class="ph"><img src="img/freight.webp" alt="Trucks on a freight corridor" loading="lazy"></div><div class="b"><h3>Track and trace</h3><p>Check calls, ETAs, customer updates</p></div></div>
         <div class="lane"><div class="ph"><img src="img/dock.webp" alt="Trailer at a loading dock" loading="lazy"></div><div class="b"><h3>Last-mile dispatch</h3><p>Routes, drivers, returns, EOD reports</p></div></div>
@@ -358,7 +427,7 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
       <div>
         <p class="eyebrow">How it works</p>
         <h2 style="margin-top:12px">We run it. You barely need to check.</h2>
-        <ol class="flow">
+        <ol class="flow rv">
           <li><span class="i" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h9l3 3v15H6z"/><path d="M9 11h6M9 15h6"/></svg></span><div><b>We write your playbook</b><span>Your process, documented before day one</span></div></li>
           <li><span class="i" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>We own every shift</b><span>Inbox, calls, orders and loads cleared</span></div></li>
           <li><span class="i" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg></span><div><b>We fix problems first</b><span>You only hear about real decisions</span></div></li>
@@ -376,7 +445,7 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
         <p class="eyebrow">Software by Lumisha LLC</p>
         <h2>Tools our teams use, built for yours</h2>
       </div>
-      <div class="prods">
+      <div class="prods rv">
         <a class="prod" href="https://smslocate.com" target="_blank" rel="noopener"><img src="img/smslocate.png" alt=""><span class="n">SMSLocate</span><p>Track any truck by text. No driver app.</p><span class="go">smslocate.com</span></a>
         <a class="prod" href="https://ringjust.com" target="_blank" rel="noopener"><img src="img/ringjust.png" alt=""><span class="n">RingJust</span><p>Cloud calling and CRM for brokers.</p><span class="go">ringjust.com</span></a>
         <a class="prod" href="https://trexpanda.com" target="_blank" rel="noopener"><img src="img/trexpanda.png" alt=""><span class="n">Trexpanda</span><p>Type less. Shared team snippets.</p><span class="go">trexpanda.com</span></a>
@@ -387,7 +456,7 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
 
   <section id="naphclean" style="padding-top:0">
     <div class="wrap">
-      <div class="goods">
+      <div class="goods rv">
         <div class="txt">
           <p class="eyebrow">Consumer products</p>
           <h2>NaphClean</h2>
@@ -409,7 +478,7 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
   <section id="reviews" style="padding-top:0">
     <div class="wrap">
       <div class="head"><p class="eyebrow">What clients say</p><h2>Owners who got their time back</h2></div>
-      <div class="quotes">
+      <div class="quotes rv">
         <blockquote><span class="stars" aria-label="5 stars">★★★★★</span><p>They quickly adapted to my workflow and fit into my daily tasks. An exceptional choice.</p><cite>CEO, shipping and logistics brand</cite></blockquote>
         <blockquote><span class="stars" aria-label="5 stars">★★★★★</span><p>A self-starter that does great work without management, and is helping streamline my operations.</p><cite>Owner, e-commerce store</cite></blockquote>
         <blockquote><span class="stars" aria-label="5 stars">★★★★★</span><p>Very professional, trustworthy and an excellent communicator. Goes above and beyond.</p><cite>Owner, online flower store</cite></blockquote>
@@ -419,7 +488,7 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
 
   <section id="careers" style="padding-top:0">
     <div class="wrap">
-      <div class="careers">
+      <div class="careers rv">
         <img src="img/careers.webp" alt="Young professionals holding speech bubbles" loading="lazy">
         <div class="in">
           <div>
@@ -433,10 +502,39 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
     </div>
   </section>
 
+  <section id="quote" style="padding-top:0">
+    <div class="wrap">
+      <div class="quote rv">
+        <div>
+          <p class="eyebrow">Get a quote</p>
+          <h2 style="margin-top:12px">Tell us what to take off your plate</h2>
+          <p class="lede" style="margin-top:12px">Share a few details and we will reply with a plan and hourly pricing.</p>
+          <ul><li>Reply within one business day</li><li>No long contract</li><li>Start with one agent, scale any time</li></ul>
+        </div>
+        <form class="qf" id="qf" novalidate>
+          <label>Your name<input id="q-name" name="name" autocomplete="name" required placeholder="Jane Smith"></label>
+          <label>Company<input id="q-co" name="company" autocomplete="organization" placeholder="Acme Logistics"></label>
+          <label>Email or phone<input id="q-contact" name="contact" autocomplete="email" placeholder="jane@acme.com"></label>
+          <label>What do you need?<select id="q-svc" name="service">
+            <option>Customer service</option><option>Sales support</option><option>E-commerce support</option><option>Freight dispatch / brokerage</option><option>Last-mile dispatch</option><option>Back office</option><option>Software (SMSLocate, RingJust, Trexpanda)</option><option>Something else</option>
+          </select></label>
+          <label>How many people?<select id="q-size" name="size"><option>1 agent</option><option>2 to 5</option><option>6 to 10</option><option>10+</option><option>Not sure yet</option></select></label>
+          <label>Hours needed<select id="q-hours" name="hours"><option>US business hours</option><option>Nights / after hours</option><option>24/7</option><option>Weekends</option></select></label>
+          <label class="full">Anything else?<textarea id="q-msg" name="message" placeholder="Tools you use, volumes, start date"></textarea></label>
+          <div class="acts">
+            <button class="btn wa-btn" type="submit" data-via="wa">Send on WhatsApp</button>
+            <button class="btn em-btn" type="submit" data-via="em">Send by email</button>
+          </div>
+          <p class="note" id="q-note" role="status">Opens WhatsApp or your email app with your details filled in.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <section id="contact" style="padding-top:0">
     <div class="wrap">
       <div class="head"><p class="eyebrow">Contact</p><h2>Talk to us your way</h2></div>
-      <div class="connect">
+      <div class="connect rv">
         <a class="ch wa" href="https://wa.me/919674224115?text=Hi%20Lumisha%2C%20I%20found%20you%20on%20lumisha.in%20and%20would%20like%20to%20talk." target="_blank" rel="noopener"><span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3z"/></svg></span><span><b>WhatsApp</b><small>+91 96742 24115</small></span></a>
         <a class="ch li" href="https://www.linkedin.com/company/lumisha-india-private-limited" target="_blank" rel="noopener"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zm7 0h3.8v1.5h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6v5.5h-4v-4.9c0-1.2 0-2.7-1.6-2.7s-1.9 1.3-1.9 2.6v5H10z"/></svg></span><span><b>LinkedIn</b><small>Follow Lumisha</small></span></a>
         <a class="ch em" href="mailto:info@lumisha.in?subject=Enquiry%20from%20lumisha.in"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><b>Email</b><small>info@lumisha.in</small></span></a>
@@ -514,6 +612,39 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
     r.setAttribute("data-theme",next);
     try{localStorage.setItem("lumisha-theme",next);}catch(e){}
   });
+  document.documentElement.classList.add("js");
+  var hdr=document.querySelector(".top");
+  function onScroll(){ if(hdr) hdr.classList.toggle("scrolled", window.scrollY>8); }
+  window.addEventListener("scroll",onScroll,{passive:true}); onScroll();
+  var mb=document.getElementById("menuBtn"), mn=document.getElementById("mnav");
+  function setMenu(o){ if(!mb||!mn) return; mn.classList.toggle("open",o); mb.setAttribute("aria-expanded",o?"true":"false"); mb.setAttribute("aria-label",o?"Close menu":"Open menu"); }
+  if(mb) mb.addEventListener("click",function(){ setMenu(!mn.classList.contains("open")); });
+  if(mn) mn.addEventListener("click",function(e){ if(e.target.tagName==="A") setMenu(false); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") setMenu(false); });
+  var rv=document.querySelectorAll(".rv");
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } }); },{rootMargin:"0px 0px -8% 0px"});
+    rv.forEach(function(el){ var r=el.getBoundingClientRect(); if(r.top<window.innerHeight) el.classList.add("in"); else io.observe(el); });
+  } else { rv.forEach(function(el){ el.classList.add("in"); }); }
+  var qf=document.getElementById("qf"), via="wa";
+  if(qf){
+    qf.querySelectorAll("button[data-via]").forEach(function(b){ b.addEventListener("click",function(){ via=b.getAttribute("data-via"); }); });
+    qf.addEventListener("submit",function(e){
+      e.preventDefault();
+      var g=function(id){ var el=document.getElementById(id); return el?el.value.trim():""; };
+      var note=document.getElementById("q-note");
+      if(!g("q-name")){ note.textContent="Please add your name so we know who to reply to."; document.getElementById("q-name").focus(); return; }
+      var lines=["Hi Lumisha, I would like a quote.","","Name: "+g("q-name")];
+      if(g("q-co")) lines.push("Company: "+g("q-co"));
+      if(g("q-contact")) lines.push("Contact: "+g("q-contact"));
+      lines.push("Service: "+g("q-svc"),"Team size: "+g("q-size"),"Hours: "+g("q-hours"));
+      if(g("q-msg")) lines.push("","Details: "+g("q-msg"));
+      var text=lines.join("\n");
+      var url= via==="em" ? "mailto:info@lumisha.in?subject="+encodeURIComponent("Quote request from "+g("q-name"))+"&body="+encodeURIComponent(text) : "https://wa.me/919674224115?text="+encodeURIComponent(text);
+      note.textContent = via==="em" ? "Opening your email app. If nothing opens, email us at info@lumisha.in." : "Opening WhatsApp. If nothing opens, message +91 96742 24115.";
+      if(via==="em") window.location.href=url; else window.open(url,"_blank","noopener");
+    });
+  }
   var y=document.getElementById("yr"); if(y) y.textContent=new Date().getFullYear();
 })();
 </script>

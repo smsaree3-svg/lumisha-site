@@ -76,6 +76,8 @@ p{margin:0}
 .clock{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-block:14px;border-bottom:1px solid rgba(255,255,255,.1);position:relative}
 .clock:last-of-type{border-bottom:0}
 .clock .city{font-weight:600}
+.clock.you{background:rgba(255,255,255,.06);margin-inline:-12px;padding-inline:12px;border-radius:12px;border-bottom:0;margin-bottom:6px}
+.clock.you .city small{display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--glow);font-weight:500}
 .clock .t{font-family:var(--mono);font-size:1.6rem;font-variant-numeric:tabular-nums}
 .clocks .note{margin-top:10px;font-size:.9rem;color:var(--night-muted);position:relative}
 .clocks .status{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:.88rem;position:relative}
@@ -221,12 +223,14 @@ footer a:hover{color:var(--ink)}
       </div>
       <aside class="clocks" aria-label="Office hours across time zones">
         <p class="lbl">Right now</p>
-        <div class="clock"><span class="city">Kolkata, IST</span><span class="t" id="c-ist">--:--</span></div>
+        <div class="clock you"><span class="city"><small>Your time</small><span id="c-you-name">Your location</span></span><span class="t" id="c-you">--:--</span></div>
         <div class="clock"><span class="city">New York, ET</span><span class="t" id="c-et">--:--</span></div>
         <div class="clock"><span class="city">Chicago, CT</span><span class="t" id="c-ct">--:--</span></div>
+        <div class="clock"><span class="city">Phoenix, MST</span><span class="t" id="c-mt">--:--</span></div>
         <div class="clock"><span class="city">Los Angeles, PT</span><span class="t" id="c-pt">--:--</span></div>
-        <p class="status"><span class="dot" aria-hidden="true"></span><span id="c-status">Teams on shift right now, 24/7</span></p>
-        <p class="note">We run 24/7, with every shift planned around your time zone, not ours.</p>
+        <div class="clock"><span class="city">Kolkata, IST</span><span class="t" id="c-ist">--:--</span></div>
+        <p class="status"><span class="dot" aria-hidden="true"></span><span id="c-status">24/7 coverage available</span></p>
+        <p class="note">Weekend and after-hours support available, with every shift planned around your time zone.</p>
       </aside>
     </div>
   </div>
@@ -459,17 +463,29 @@ footer a:hover{color:var(--ink)}
 
 <script>
 (function(){
-  var zones=[["c-ist","Asia/Kolkata"],["c-et","America/New_York"],["c-ct","America/Chicago"],["c-pt","America/Los_Angeles"]];
+  var zones=[["c-et","America/New_York"],["c-ct","America/Chicago"],["c-mt","America/Phoenix"],["c-pt","America/Los_Angeles"],["c-ist","Asia/Kolkata"]];
+  var mine="";
+  try{mine=Intl.DateTimeFormat().resolvedOptions().timeZone||"";}catch(e){}
+  zones.unshift(["c-you",mine||undefined]);
+  try{
+    var nm=document.getElementById("c-you-name");
+    if(nm){
+      var place=mine?mine.split("/").pop().replace(/_/g," "):"Your location"; if(place==="Calcutta"){place="Kolkata";}
+      var abbr="";
+      try{abbr=(new Intl.DateTimeFormat("en-US",{timeZone:mine||undefined,timeZoneName:"short"}).formatToParts(new Date()).filter(function(p){return p.type==="timeZoneName";})[0]||{}).value||"";}catch(e){}
+      if(mine==="Asia/Calcutta"||mine==="Asia/Kolkata"){abbr="IST";}
+      nm.textContent=place+(abbr?", "+abbr:"");
+    }
+  }catch(e){}
   function tick(){
     var now=new Date();
     zones.forEach(function(z){
       var el=document.getElementById(z[0]); if(!el) return;
-      try{el.textContent=now.toLocaleTimeString("en-US",{timeZone:z[1],hour:"numeric",minute:"2-digit"});}catch(e){}
+      try{var o={hour:"numeric",minute:"2-digit"}; if(z[1]) o.timeZone=z[1]; el.textContent=now.toLocaleTimeString("en-US",o);}catch(e){}
     });
     try{
-      var d=now.toLocaleDateString("en-US",{timeZone:"America/Chicago",weekday:"short"});
       var s=document.getElementById("c-status");
-      if(s) s.textContent="Teams on shift right now, 24/7";
+      if(s) s.textContent="24/7 coverage available";
     }catch(e){}
   }
   tick(); setInterval(tick,30000);

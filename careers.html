@@ -10,14 +10,21 @@
 <meta property="og:image" content="https://lumisha.in/img/careers.webp">
 <link rel="canonical" href="https://lumisha.in/careers.html">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="preload" as="font" type="font/woff2" href="fonts/instrument-sans-latin-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/unbounded-latin-700-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/instrument-sans-latin-600-normal.woff2" crossorigin>
 <script>try{var t=localStorage.getItem("lumisha-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
 <style>
+@font-face{font-family:"Unbounded";font-weight:500;font-display:swap;src:url(fonts/unbounded-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Unbounded";font-weight:700;font-display:swap;src:url(fonts/unbounded-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:400;font-display:swap;src:url(fonts/instrument-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:500;font-display:swap;src:url(fonts/instrument-sans-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:600 700;font-display:swap;src:url(fonts/instrument-sans-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-weight:400;font-display:swap;src:url(fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-weight:500 700;font-display:swap;src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2")}
 :root{
   --paper:#F4F5F7; --surface:#FFFFFF; --ink:#1B2130; --muted:#5A6275; --line:#DADDE4;
-  --sun:#D5382C; --sun-soft:#FBE7E3; --glow:#EFA13A; --night:#1B2130; --night-ink:#E9ECF2; --night-muted:#9AA3B6;
+  --sun:#D5382C; --sun-text:#B8302A; --sun-soft:#FBE7E3; --glow:#EFA13A; --night:#1B2130; --night-ink:#E9ECF2; --night-muted:#9AA3B6;
   --display:"Unbounded","Arial Black",system-ui,sans-serif;
   --body:"Instrument Sans","Segoe UI",system-ui,-apple-system,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
@@ -26,13 +33,13 @@
   :root:not([data-theme="light"]){
     color-scheme:dark;
     --paper:#12151D; --surface:#1A1F2B; --ink:#E9ECF2; --muted:#9AA3B6; --line:#2B3242;
-    --sun:#F0574A; --sun-soft:#3A1E1D; --glow:#F2B052; --night:#0C0F15; --night-ink:#E9ECF2; --night-muted:#8E97AA;
+    --sun:#F0574A; --sun-text:#F0574A; --sun-soft:#3A1E1D; --glow:#F2B052; --night:#0C0F15; --night-ink:#E9ECF2; --night-muted:#8E97AA;
   }
 }
 :root[data-theme="dark"]{
   color-scheme:dark;
   --paper:#12151D; --surface:#1A1F2B; --ink:#E9ECF2; --muted:#9AA3B6; --line:#2B3242;
-  --sun:#F0574A; --sun-soft:#3A1E1D; --glow:#F2B052; --night:#0C0F15; --night-ink:#E9ECF2; --night-muted:#8E97AA;
+  --sun:#F0574A; --sun-text:#F0574A; --sun-soft:#3A1E1D; --glow:#F2B052; --night:#0C0F15; --night-ink:#E9ECF2; --night-muted:#8E97AA;
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -47,13 +54,13 @@ h1,h2,h3{margin:0;text-wrap:balance}
 h2{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.15}
 h3{font-weight:600;font-size:1.08rem;line-height:1.3}
 p{margin:0}
-.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sun)}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sun-text)}
 .lede{color:var(--muted);max-width:56ch;font-size:1.05rem}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.97rem;border:1px solid transparent;cursor:pointer;font-family:inherit}
 .btn.primary{background:var(--sun);color:#fff}
 .btn.primary:hover{filter:brightness(1.07)}
 .btn.ghost{border-color:var(--line);color:var(--ink);background:var(--surface)}
-.btn.wa{background:#25D366;color:#fff}
+.btn.wa{background:#15803D;color:#fff}
 /* header */
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
@@ -149,7 +156,7 @@ footer a{text-decoration:none}
 
 <main class="wrap">
   <div class="hero">
-    <img src="img/careers.webp" alt="Young professionals holding speech bubbles" width="1000" height="667">
+    <img src="img/careers.webp" srcset="img/careers-640.webp 640w, img/careers.webp 1000w" sizes="(max-width:1180px) 100vw, 1132px" alt="Young professionals holding speech bubbles" width="1000" height="668" fetchpriority="high">
     <div class="in">
       <p class="eyebrow">Careers at Lumisha</p>
       <h1>Work with US clients <em>from India</em></h1>

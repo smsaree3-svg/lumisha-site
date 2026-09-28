@@ -314,6 +314,44 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
 .sq p{font-size:.98rem}
 .sq cite{color:var(--glow);font-size:.82rem}
 @media (max-width:900px){.src{grid-template-columns:1fr;padding:26px}.sq{position:relative;left:auto;right:auto;bottom:auto;margin:-40px 14px 0}}
+
+/* booking window */
+.bk{position:fixed;border:0;padding:0;margin:auto;width:min(1040px,calc(100% - 32px));max-height:calc(100dvh - 32px);border-radius:24px;background:var(--surface);color:var(--ink);box-shadow:0 30px 80px rgba(10,14,25,.35);overflow:hidden}
+.bk::backdrop{background:rgba(12,15,21,.62);backdrop-filter:blur(4px)}
+.bk[open]{display:grid;grid-template-columns:340px 1fr;animation:bkIn .28s ease-out}
+@keyframes bkIn{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.bk-side{background:var(--night);color:var(--night-ink);padding:32px 28px;display:flex;flex-direction:column;gap:18px;position:relative;overflow:hidden}
+.bk-side:after{content:"";position:absolute;right:-90px;bottom:-90px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,var(--sun) 0%,transparent 70%);opacity:.35}
+.bk-side h3{font-family:var(--display);font-size:1.55rem;line-height:1.15;margin:0}
+.bk-side p{margin:0;color:var(--night-muted);font-size:.95rem}
+.bk-host{display:flex;align-items:center;gap:12px}
+.bk-host img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--sun)}
+.bk-host b{display:block;font-size:.98rem}.bk-host small{color:var(--night-muted);font-size:.82rem}
+.bk-facts{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:.92rem}
+.bk-facts li{display:flex;gap:10px;align-items:center}
+.bk-facts svg{flex:none;color:var(--glow)}
+.bk-alt{margin-top:auto;font-size:.85rem;color:var(--night-muted);position:relative;z-index:1}
+.bk-alt a{color:var(--night-ink)}
+.bk-main{position:relative;min-height:min(680px,calc(100dvh - 32px));background:var(--surface)}
+.bk-main iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.bk-load{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-size:.95rem}
+.bk-load span{display:inline-block;width:28px;height:28px;border:3px solid var(--line);border-top-color:var(--sun);border-radius:50%;animation:bkSpin .8s linear infinite;margin-bottom:10px}
+@keyframes bkSpin{to{transform:rotate(360deg)}}
+.bk-x{position:absolute;top:12px;right:12px;z-index:3;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.bk-done{position:absolute;inset:0;z-index:2;background:var(--surface);display:grid;place-items:center;text-align:center;padding:32px}
+.bk-done .tick{width:64px;height:64px;border-radius:50%;background:var(--sun-soft);color:var(--sun);display:grid;place-items:center;margin:0 auto 16px}
+.bk-done h3{font-family:var(--display);font-size:1.5rem;margin:0 0 8px}
+.bk-done p{color:var(--muted);margin:0 0 20px}
+@media (max-width:820px){
+  .bk{width:100%;max-width:100%;max-height:100dvh;height:100dvh;border-radius:0;margin:0}
+  .bk[open]{grid-template-columns:1fr;grid-template-rows:auto 1fr}
+  .bk-side{padding:18px 64px 16px 20px;gap:8px}
+  .bk-side h3{font-size:1.15rem}.bk-side p,.bk-facts,.bk-alt,.bk-host{display:none}
+  .bk-side .bk-mfacts{display:block}
+  .bk-main{min-height:0}
+}
+.bk-mfacts{display:none;font-size:.85rem;color:var(--night-muted)}
+@media (prefers-reduced-motion:reduce){.bk[open]{animation:none}}
 </style>
 <script>try{var t=localStorage.getItem("lumisha-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
 </head>
@@ -730,6 +768,49 @@ footer .soc a{width:36px;height:36px;border-radius:999px;border:1px solid var(--
     });
   }
   var y=document.getElementById("yr"); if(y) y.textContent=new Date().getFullYear();
+})();
+</script>
+
+<dialog class="bk" id="bk" aria-labelledby="bkTitle">
+    <button class="bk-x" type="button" id="bkX" aria-label="Close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <div class="bk-side">
+    <span class="eyebrow">Free intro call</span>
+    <h3 id="bkTitle">Let's talk about what's on your plate</h3>
+    <div class="bk-mfacts">15 minutes on Google Meet. Pick any time that suits you.</div>
+    <p>Tell us what's taking up your day. We'll listen, ask a few questions and show you how our team could take it off your hands. No pressure, no hard sell.</p>
+    <div class="bk-host"><img src="https://d3v0px0pttie1i.cloudfront.net/uploads/user/avatar/41018479/c1965d14.jpeg" alt="" width="48" height="48" loading="lazy"><div><b>Amit Roda</b><small>Director, Sales and Marketing</small></div></div>
+    <ul class="bk-facts">
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>15 minutes</li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3"/></svg>Google Meet, link sent by email</li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>Times shown in your own time zone</li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Free, no commitment</li>
+    </ul>
+    <div class="bk-alt">Rather chat now? <a href="https://wa.me/919674224115" target="_blank" rel="noopener">WhatsApp us</a> or <a href="mailto:info@lumisha.in">email info@lumisha.in</a>.</div>
+  </div>
+  <div class="bk-main">
+    <div class="bk-load" id="bkLoad"><div style="text-align:center"><span></span><br>Loading available times…</div></div>
+    <div class="bk-done" id="bkDone" hidden><div><div class="tick"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div><h3>You're booked in</h3><p>A calendar invite with the Google Meet link is on its way to your inbox.<br>We look forward to speaking with you.</p><button class="btn primary" type="button" id="bkOk">Back to the site</button></div></div>
+  </div>
+</dialog>
+<script>
+(function(){
+  var d=document.getElementById("bk"); if(!d||typeof d.showModal!=="function") return;
+  var BASE="https://calendly.com/amitrodaindia/15min", main=d.querySelector(".bk-main"), frame=null;
+  function hex(v){return (getComputedStyle(document.documentElement).getPropertyValue(v)||"").trim().replace("#","");}
+  function src(){return BASE+"?embed_domain="+encodeURIComponent(location.hostname||"lumisha.in")+"&embed_type=Inline&hide_gdpr_banner=1&hide_event_type_details=1&primary_color="+hex("--sun")+"&text_color="+hex("--ink")+"&background_color="+hex("--surface");}
+  function open(e){
+    if(e){e.preventDefault();}
+    document.getElementById("bkDone").hidden=true;
+    if(!frame){frame=document.createElement("iframe");frame.title="Pick a time for your call";frame.allow="payment";frame.onload=function(){document.getElementById("bkLoad").hidden=true;};frame.src=src();main.appendChild(frame);}
+    d.showModal(); document.documentElement.style.overflow="hidden";
+  }
+  function close(){d.close();}
+  d.addEventListener("close",function(){document.documentElement.style.overflow="";});
+  d.addEventListener("click",function(e){if(e.target===d)close();});
+  document.getElementById("bkX").onclick=close; document.getElementById("bkOk").onclick=close;
+  document.querySelectorAll('a[href^="https://calendly.com/amitrodaindia"]').forEach(function(a){a.addEventListener("click",open);});
+  window.addEventListener("message",function(e){if(e.origin==="https://calendly.com"&&e.data&&e.data.event==="calendly.event_scheduled"){document.getElementById("bkDone").hidden=false;}});
+  if(location.hash==="#book") open();
 })();
 </script>
 </body>

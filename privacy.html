@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacy Policy | Lumisha India Private Limited</title>
+<meta name="description" content="How Lumisha India Private Limited collects, uses and protects personal data, including messages on WhatsApp.">
+<meta property="og:title" content="Privacy Policy, Lumisha India Private Limited">
+<meta property="og:description" content="How we collect, use and protect personal data, including WhatsApp messages.">
+<link rel="canonical" href="https://lumisha.in/privacy.html">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="preload" as="font" type="font/woff2" href="fonts/instrument-sans-latin-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/unbounded-latin-700-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/instrument-sans-latin-600-normal.woff2" crossorigin>
+<script>try{var t=localStorage.getItem("lumisha-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
+<style>
+@font-face{font-family:"Unbounded";font-weight:500;font-display:swap;src:url(fonts/unbounded-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Unbounded";font-weight:700;font-display:swap;src:url(fonts/unbounded-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:400;font-display:swap;src:url(fonts/instrument-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:500;font-display:swap;src:url(fonts/instrument-sans-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:600 700;font-display:swap;src:url(fonts/instrument-sans-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-weight:400;font-display:swap;src:url(fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-weight:500 700;font-display:swap;src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2")}
+:root{
+  --paper:#F4F5F7; --surface:#FFFFFF; --ink:#1B2130; --muted:#5A6275; --line:#DADDE4;
+  --sun:#D5382C; --sun-text:#B8302A; --sun-soft:#FBE7E3; --glow:#EFA13A; --night:#1B2130; --night-ink:#E9ECF2; --night-muted:#9AA3B6;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Instrument Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --paper:#12151D; --surface:#1A1F2B; --ink:#E9ECF2; --muted:#9AA3B6; --line:#2B3242;
+    --sun:#F0574A; --sun-text:#F0574A; --sun-soft:#3A1E1D; --glow:#F2B052; --night:#0C0F15; --night-ink:#E9ECF2; --night-muted:#8E97AA;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#12151D; --surface:#1A1F2B; --ink:#E9ECF2; --muted:#9AA3B6; --line:#2B3242;
+  --sun:#F0574A; --sun-text:#F0574A; --sun-soft:#3A1E1D; --glow:#F2B052; --night:#0C0F15; --night-ink:#E9ECF2; --night-muted:#8E97AA;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:clip}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--sun);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:24px}
+@media (max-width:600px){.wrap{padding-inline:18px}}
+h1,h2,h3{margin:0;text-wrap:balance}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.15}
+h3{font-weight:600;font-size:1.08rem;line-height:1.3}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sun-text)}
+.lede{color:var(--muted);max-width:56ch;font-size:1.05rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.97rem;border:1px solid transparent;cursor:pointer;font-family:inherit}
+.btn.primary{background:var(--sun);color:#fff}
+.btn.primary:hover{filter:brightness(1.07)}
+.btn.ghost{border-color:var(--line);color:var(--ink);background:var(--surface)}
+.btn.wa{background:#15803D;color:#fff}
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.brand img{height:40px;width:auto}
+.top nav{display:flex;align-items:center;gap:10px}
+.back{text-decoration:none;font-weight:600;color:var(--muted);font-size:.95rem}
+.back:hover{color:var(--ink)}
+.theme{width:40px;height:40px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer;padding:0}
+.theme .moon{display:none}
+:root[data-theme="dark"] .theme .sun{display:none}:root[data-theme="dark"] .theme .moon{display:block}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .theme .sun{display:none}:root:not([data-theme="light"]) .theme .moon{display:block}}
+/* hero */
+.hero{position:relative;overflow:hidden;border-radius:26px;margin-top:28px;min-height:340px;display:flex;align-items:flex-end;color:#fff}
+.hero > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,21,29,.92) 0%,rgba(18,21,29,.7) 45%,rgba(18,21,29,.15) 100%)}
+.hero .in{position:relative;z-index:1;padding:40px;max-width:640px;display:flex;flex-direction:column;gap:14px}
+.hero .eyebrow{color:var(--glow)}
+.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.05;letter-spacing:-0.02em}
+.hero h1 em{font-style:normal;color:#F0574A}
+.hero p{color:#D8DCE5;font-size:1.05rem}
+.hero .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.hero .tags span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 12px;font-size:.85rem;font-weight:600}
+@media (max-width:640px){.hero .in{padding:24px}.hero::after{background:linear-gradient(0deg,rgba(18,21,29,.92),rgba(18,21,29,.45))}}
+/* layout */
+.grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start;padding-block:48px 80px}
+@media (max-width:960px){.grid{grid-template-columns:1fr}}
+.side{display:flex;flex-direction:column;gap:22px;position:sticky;top:96px}
+@media (max-width:960px){.side{position:static}}
+.roles{display:grid;gap:12px}
+.role{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
+.role .i{width:40px;height:40px;border-radius:12px;background:var(--sun-soft);color:var(--sun);display:grid;place-items:center;flex:none}
+.role p{color:var(--muted);font-size:.9rem}
+.perks{background:var(--night);color:var(--night-ink);border-radius:18px;padding:22px}
+.perks .eyebrow{color:var(--glow)}
+.perks ul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.perks li{display:flex;gap:10px}
+.perks li::before{content:"\2713";color:#5FD39A;font-weight:700}
+.how{display:grid;gap:10px;font-size:.95rem}
+.how div{display:flex;gap:12px;align-items:flex-start}
+.how span{flex:none;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:var(--mono);font-size:.8rem}
+.how p{color:var(--muted)}
+/* form */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 30px 60px -45px rgba(0,0,0,.45)}
+.card .ch{padding:26px 28px 18px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.progress{display:flex;gap:8px;margin-top:8px}
+.progress i{flex:1;height:6px;border-radius:999px;background:var(--line)}
+.progress i.on{background:var(--sun)}
+.stepname{font-family:var(--mono);font-size:.78rem;color:var(--muted);letter-spacing:.06em}
+form{padding:24px 28px 28px}
+.fs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fs .full{grid-column:1/-1}
+@media (max-width:560px){.fs{grid-template-columns:1fr}form{padding:20px}.card .ch{padding:20px}}
+label.f{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:.92rem}
+label.f small{font-weight:400;color:var(--muted)}
+.req{color:var(--sun)}
+input[type=text],input[type=email],input[type=tel],input[type=number],textarea,select{font:inherit;font-weight:400;font-size:1rem;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px;width:100%}
+textarea{min-height:84px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--sun);outline-offset:0;border-color:transparent;background:var(--surface)}
+.bad input,.bad textarea,.bad .chips{outline:2px solid var(--sun)}
+.err{color:var(--sun);font-weight:600;font-size:.82rem;min-height:1em}
+fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+legend{font-weight:600;font-size:.92rem;margin-bottom:6px;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;border-radius:12px}
+.chips label{position:relative}
+.chips input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chips span{display:inline-block;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--paper);font-weight:600;font-size:.9rem;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.chips input:checked + span{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chips input:focus-visible + span{outline:2px solid var(--sun);outline-offset:2px}
+.acts{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;margin-top:22px}
+.note{font-size:.85rem;color:var(--muted)}
+.done{padding:28px;display:flex;flex-direction:column;gap:14px}
+.done .big{font-family:var(--display);font-weight:700;font-size:1.4rem}
+.upl{display:flex;gap:14px;align-items:flex-start;background:var(--sun-soft);border-radius:16px;padding:16px}
+.upl .i{width:40px;height:40px;border-radius:12px;background:var(--sun);color:#fff;display:grid;place-items:center;flex:none}
+footer{border-top:1px solid var(--line);padding-block:26px;color:var(--muted);font-size:.88rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between}
+footer a{text-decoration:none}
+
+/* privacy page */
+.doc{max-width:780px;margin:0 auto;padding:40px 0 64px}
+.doc h1{font-family:var(--display);font-weight:700;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.1;letter-spacing:-.02em;margin:10px 0 8px}
+.doc .meta{color:var(--muted);font-size:.95rem;margin:0 0 28px}
+.doc h2{font-family:var(--display);font-weight:700;font-size:1.25rem;margin:36px 0 10px;scroll-margin-top:90px}
+.doc p,.doc li{line-height:1.65}
+.doc ul{padding-left:1.2em}
+.doc li{margin:4px 0}
+.doc a{color:var(--sun-text)}
+.doc .card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin:16px 0}
+.doc .wa{border-left:4px solid #25D366}
+.doc .toc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px;padding:0;list-style:none}
+.doc .toc a{display:inline-block;padding:6px 12px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink);font-size:.88rem;background:var(--surface)}
+.doc address{font-style:normal;line-height:1.6}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Lumisha home"><img src="logo.webp" alt="Lumisha" width="157" height="40"></a>
+    <nav aria-label="Main">
+      <a class="back" href="/">Back to lumisha.in</a>
+      <button class="theme" id="themeBtn" type="button" aria-label="Switch between light and dark theme">
+        <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+<article class="doc">
+<span class="eyebrow">Legal</span>
+<h1>Privacy Policy</h1>
+<p class="meta">Lumisha India Private Limited. Last updated: 4 October 2026.</p>
+
+<ul class="toc" aria-label="On this page">
+  <li><a href="#who">Who we are</a></li><li><a href="#collect">What we collect</a></li><li><a href="#whatsapp">WhatsApp</a></li>
+  <li><a href="#use">How we use it</a></li><li><a href="#share">Who we share it with</a></li><li><a href="#keep">How long we keep it</a></li>
+  <li><a href="#rights">Your rights</a></li><li><a href="#contact">Contact</a></li>
+</ul>
+
+<h2 id="who">1. Who we are</h2>
+<p>This policy explains how <strong>Lumisha India Private Limited</strong> ("Lumisha", "we", "us") collects, uses and protects personal data when you visit lumisha.in, contact us, apply for a job, or message us, including on WhatsApp. We are the data fiduciary (the party that decides how your data is used) under India's Digital Personal Data Protection Act, 2023.</p>
+<div class="card"><address><strong>Lumisha India Private Limited</strong><br>16 Golaghata Road, Ground Floor<br>Kolkata, West Bengal 700048, India<br>Email: <a href="mailto:info@lumisha.in">info@lumisha.in</a><br>Phone: <a href="tel:+913335980152">+91 33 3598 0152</a></address></div>
+<p>Our affiliate Lumisha LLC (Dover, Delaware, USA) serves some of our US clients. Where Lumisha LLC handles your data, it follows this policy too.</p>
+
+<h2 id="collect">2. What we collect</h2>
+<ul>
+  <li><strong>Contact details</strong> you give us: name, company, email, phone or WhatsApp number, and what you write to us through the quote form, email, phone or WhatsApp.</li>
+  <li><strong>Job applications</strong>: the details on our careers form and your resume, such as name, age, email, phone, education, experience and address.</li>
+  <li><strong>Client work</strong>: business contact details and records our clients share with us so we can do the work they hire us for.</li>
+  <li><strong>Bookings</strong>: if you book a call through Calendly, the name, email and time you choose.</li>
+</ul>
+<p>Our website does not use advertising or tracking cookies, and we do not run analytics that profile visitors.</p>
+
+<h2 id="whatsapp">3. WhatsApp messages</h2>
+<div class="card wa">
+<p>We use the <strong>WhatsApp Business Platform</strong>, provided by Meta Platforms, Inc. and WhatsApp LLC, to talk with clients, candidates, employees and people who contact us.</p>
+<ul>
+  <li><strong>When we message you.</strong> We message you on WhatsApp only after you message us first, or after you give us your number and agree to hear from us on WhatsApp (for example on a form, on a call, or in writing). We send replies to your questions, updates on work, orders, quotes or appointments you asked about, and updates on your job application.</li>
+  <li><strong>Marketing.</strong> We send offers or news on WhatsApp only if you have separately agreed to receive them.</li>
+  <li><strong>What we receive.</strong> Your WhatsApp name and number, the messages, photos and files you send, and delivery and read status.</li>
+  <li><strong>How it is used.</strong> Only to reply to you and to provide the service or update you asked for. We never sell your number or messages, and we do not use them for unrelated purposes.</li>
+  <li><strong>Who processes it.</strong> Meta processes WhatsApp messages on our behalf under the WhatsApp Business terms and Meta's privacy policy. Messages may be handled on Meta's servers outside India.</li>
+  <li><strong>Stopping messages.</strong> Reply <strong>STOP</strong> at any time, or tell us in the chat, and we will stop messaging you except to answer anything you send later. You can also block our number in WhatsApp.</li>
+  <li><strong>How long we keep chats.</strong> Up to 24 months after the last message, unless a law or an ongoing contract needs us to keep it longer.</li>
+</ul>
+</div>
+
+<h2 id="use">4. How we use your data</h2>
+<ul>
+  <li>To answer your questions and send quotes.</li>
+  <li>To provide our services to clients and keep records of that work.</li>
+  <li>To assess job applications and contact candidates.</li>
+  <li>To meet legal, tax and accounting duties.</li>
+  <li>To keep our systems and people safe and prevent misuse.</li>
+</ul>
+<p>We use your data with your consent, or where the law allows it without consent, such as for employment, to meet a legal duty, or for a purpose you have willingly given the data for.</p>
+
+<h2 id="share">5. Who we share it with</h2>
+<p>We do not sell personal data. We share it only with:</p>
+<ul>
+  <li><strong>Service providers</strong> who help us run the business, under contract: Meta (WhatsApp), Google (email and documents), Calendly (call booking), GitHub (website hosting) and Railway (our HR and calling software).</li>
+  <li><strong>Our clients</strong>, when you are part of the work we do for them.</li>
+  <li><strong>Authorities</strong>, when the law requires it.</li>
+</ul>
+<p>Some of these providers store data outside India, including in the USA. We use providers who protect data with appropriate safeguards.</p>
+
+<h2 id="keep">6. How long we keep it</h2>
+<ul>
+  <li>Enquiries and WhatsApp chats: up to 24 months after our last contact.</li>
+  <li>Job applications from people who do not join: up to 12 months after our last contact.</li>
+  <li>Client, employee and accounting records: as long as the contract lasts and then as long as tax and labour laws require, usually 8 years.</li>
+</ul>
+
+<h2 id="security">7. How we protect it</h2>
+<p>Access is limited to the people who need it, accounts are protected by sign-in, and sensitive details such as PAN and bank account numbers are stored encrypted. No system is perfectly secure, but if a breach affects you, we will tell you and the Data Protection Board of India as the law requires.</p>
+
+<h2 id="rights">8. Your rights</h2>
+<p>You can ask to see the data we hold about you, correct it, delete it, or withdraw your consent at any time. You can also name someone to act for you. Send one email to <a href="mailto:info@lumisha.in?subject=My%20data">info@lumisha.in</a> with the subject "My data". We reply within 30 days. Withdrawing consent does not affect anything we did before.</p>
+<p>If you are not happy with our answer, you can complain to the Data Protection Board of India.</p>
+
+<h2 id="children">9. Children</h2>
+<p>Our services are for businesses and adults. We do not knowingly collect data from anyone under 18.</p>
+
+<h2 id="changes">10. Changes to this policy</h2>
+<p>We may update this policy. The date at the top shows the latest version. If a change is important, we will tell people we are in touch with.</p>
+
+<h2 id="contact">11. Contact and Grievance Officer</h2>
+<div class="card"><address><strong>Grievance Officer:</strong> Amit Roda, Director<br>Lumisha India Private Limited, 16 Golaghata Road, Ground Floor, Kolkata, West Bengal 700048, India<br>Email: <a href="mailto:info@lumisha.in">info@lumisha.in</a><br>Phone: <a href="tel:+913335980152">+91 33 3598 0152</a></address></div>
+</article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Lumisha India Private Limited. Lets work.</span>
+    <span><a href="/">lumisha.in</a> · <a href="/careers.html">Careers</a> · <a href="/#contact">Contact</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var tb=document.getElementById("themeBtn");
+  if(tb) tb.addEventListener("click",function(){ var r=document.documentElement,c=r.getAttribute("data-theme"); if(!c){ c=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light"; } var n=c==="dark"?"light":"dark"; r.setAttribute("data-theme",n); try{localStorage.setItem("lumisha-theme",n);}catch(e){} });
+  var y=document.getElementById("yr"); if(y) y.textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

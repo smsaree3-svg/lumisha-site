@@ -72,6 +72,7 @@ td .addr{white-space:pre-line;font-size:.86rem;max-width:280px}
 .bar{display:flex;align-items:center;gap:10px;padding:10px 18px;border-bottom:1px solid var(--line);font-size:.9rem}
 .bar .t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .bar .c{font-family:var(--mono);font-size:.8rem;width:30px;text-align:right}
+.bar .btn{margin-left:4px}
 .bar i{display:block;height:8px;border-radius:999px;background:var(--sun);min-width:4px}
 .bar .w{width:120px;background:var(--line);border-radius:999px;overflow:hidden}
 .empty{padding:40px 18px;text-align:center;color:var(--muted)}
@@ -115,7 +116,8 @@ footer{border-top:1px solid var(--line);padding-block:22px;color:var(--muted);fo
       <div class="r">
         <button class="btn" id="refreshBtn" type="button">Refresh</button>
         <button class="btn" id="csvBtn" type="button">Export CSV</button>
-        <button class="btn primary" id="copyAllBtn" type="button">Copy pending addresses</button>
+        <button class="btn primary" id="nextBtn" type="button">Order next pending</button>
+        <button class="btn" id="copyAllBtn" type="button">Copy pending addresses</button>
         <button class="btn" id="logoutBtn" type="button">Lock</button>
       </div>
     </div>
@@ -164,7 +166,7 @@ footer{border-top:1px solid var(--line);padding-block:22px;color:var(--muted);fo
     <h2 id="mName"></h2>
     <p class="lede" id="mGift" style="font-size:.9rem"></p>
     <label class="f">Status<select id="mStatus"><option>Pending</option><option>Ordered</option><option>Delivered</option></select></label>
-    <label class="f">Amazon order ID<input type="text" id="mOrder" placeholder="403-1234567-1234567"></label>
+    <label class="f">Amazon order ID<input type="text" id="mOrder" placeholder="403-1234567-1234567" autofocus></label>
     <label class="f">Note<input type="text" id="mNote" placeholder="Expected 31 Oct, tracking shared on WhatsApp"></label>
     <p class="err" id="mErr"></p>
     <div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn" id="mCancel" type="button">Cancel</button><button class="btn primary" id="mSave" type="button">Save</button></div>
@@ -229,7 +231,10 @@ var BUDGET_PER_HEAD = 1000;      // for the estimated spend tile when a price ra
     var sel=$("fGift"), cur=sel.value; sel.innerHTML='<option value="">All gifts</option>'+Object.keys(gifts).sort().map(function(g){return '<option'+(g===cur?" selected":"")+'>'+esc(g)+'</option>'}).join("");
     // summary
     var list=Object.keys(gifts).sort(function(a,b){return gifts[b]-gifts[a]}), max=Math.max.apply(null,list.map(function(g){return gifts[g]}).concat([1]));
-    $("summary").innerHTML=list.length?list.map(function(g){ return '<div class="bar"><span class="t" title="'+esc(g)+'">'+esc(g)+'</span><span class="w"><i style="width:'+Math.round(gifts[g]/max*100)+'%"></i></span><span class="c">'+gifts[g]+'</span></div>'; }).join(""):'<div class="empty">Nothing yet.</div>';
+    $("summary").innerHTML=list.length?list.map(function(g){
+      var pendRows=ROWS.filter(function(r){return r.Gift===g&&(r.Status||"Pending")==="Pending"&&r.ASIN});
+      var btn=pendRows.length?'<button class="btn sm" data-batch="'+esc(g)+'" title="Copies all '+pendRows.length+' shipping blocks and opens Amazon checkout with quantity '+pendRows.length+'">Order '+pendRows.length+'×</button>':'';
+      return '<div class="bar"><span class="t" title="'+esc(g)+'">'+esc(g)+'</span><span class="w"><i style="width:'+Math.round(gifts[g]/max*100)+'%"></i></span><span class="c">'+gifts[g]+'</span>'+btn+'</div>'; }).join(""):'<div class="empty">Nothing yet.</div>';
     // table
     var vis=ROWS.filter(function(r){
       var st=r.Status||"Pending";
@@ -254,15 +259,41 @@ var BUDGET_PER_HEAD = 1000;      // for the estimated spend tile when a price ra
         '<td><span class="n">'+esc(r.Gift)+'</span><span class="m">'+esc(r["Gift price"])+(r.ASIN?' · <a href="https://www.amazon.in/dp/'+esc(r.ASIN)+'" target="_blank" rel="noopener">'+esc(r.ASIN)+'</a>':'')+'</span>'+(r["Backup gift"]?'<span class="m">Backup: '+esc(r["Backup gift"])+'</span>':'')+'</td>'+
         '<td><div class="addr">'+esc(addr(r))+'</div>'+(r.Notes?'<span class="m">'+esc(r.Notes)+'</span>':'')+'</td>'+
         '<td><span class="pill '+st+'">'+st+'</span>'+(r["Order ID"]?'<span class="m" style="font-family:var(--mono)">'+esc(r["Order ID"])+'</span>':'')+(r["Status note"]?'<span class="m">'+esc(r["Status note"])+'</span>':'')+'</td>'+
-        '<td style="white-space:nowrap"><button class="btn sm" data-act="copy">Copy</button> <button class="btn sm" data-act="status">Status</button></td></tr>';
+        '<td style="white-space:nowrap">'+(st==="Pending"&&r.ASIN?'<button class="btn sm primary" data-act="order" title="Copies the shipping details and opens Amazon checkout with this item, at the address step">Order on Amazon</button> ':'')+'<button class="btn sm" data-act="copy">Copy</button> <button class="btn sm" data-act="status">Status</button></td></tr>';
     }).join("");
   }
 
+  /* ---- ordering on Amazon ---- */
+  function cartUrl(asin,qty){ return "https://www.amazon.in/checkout/entry/buynow?asin="+encodeURIComponent(asin)+"&quantity="+(qty||1); } // straight to checkout, address step; nothing is bought until Place your order
+  function amazonAddr(r){
+    // in the exact order Amazon's "Add a new address" form asks for them
+    return ["Full name: "+r.Name,"Mobile: "+r.Phone,"Pincode: "+r.PIN,"Flat, House no., Building: "+(r["Address 1"]||""),"Area, Street, Sector: "+(r["Address 2"]||""),"Landmark: "+(r.Landmark||""),"Town/City: "+(r.City||""),"State: "+(r.State||""),(r.Notes?"Delivery instructions: "+r.Notes:"")].filter(Boolean).join("\n");
+  }
+  function startOrder(r){
+    if(!r.ASIN){ toast("No Amazon item for "+r.Name+" (they asked us to choose). Pick one and use Status."); return; }
+    var w=window.open("about:blank","_blank"); // open synchronously so the browser allows the popup
+    navigator.clipboard.writeText(amazonAddr(r)).then(function(){ toast("Shipping details for "+r.Name+" copied. Paste them into Amazon's address form."); });
+    if(w) w.location=cartUrl(r.ASIN,1); else location.href=cartUrl(r.ASIN,1);
+    setTimeout(function(){ openModal(r,"Ordered"); },800);
+  }
+  function startBatch(g){
+    var rows=ROWS.filter(function(r){return r.Gift===g&&(r.Status||"Pending")==="Pending"&&r.ASIN}); if(!rows.length) return;
+    var w=window.open("about:blank","_blank");
+    navigator.clipboard.writeText(rows.map(amazonAddr).join("\n\n----------\n\n")).then(function(){ toast(rows.length+" shipping blocks copied for "+g); });
+    var u=cartUrl(rows[0].ASIN,rows.length); if(w) w.location=u; else location.href=u;
+  }
   $("rows").addEventListener("click",function(e){
     var b=e.target.closest("button"); if(!b) return;
     var r=ROWS[+b.closest("tr").dataset.i];
     if(b.dataset.act==="copy"){ navigator.clipboard.writeText(shipBlock(r)).then(function(){toast("Address copied for "+r.Name)}); }
     if(b.dataset.act==="status"){ openModal(r); }
+    if(b.dataset.act==="order"){ startOrder(r); }
+  });
+  $("summary").addEventListener("click",function(e){ var b=e.target.closest("button[data-batch]"); if(b) startBatch(b.dataset.batch); });
+  $("nextBtn").addEventListener("click",function(){
+    var p=ROWS.filter(function(r){return (r.Status||"Pending")==="Pending"&&r.ASIN}).sort(function(a,b){return new Date(a.Updated)-new Date(b.Updated)});
+    if(!p.length){ toast("Nothing left to order"); return; }
+    startOrder(p[0]);
   });
   ["q","fStatus","fGift"].forEach(function(id){ $(id).addEventListener("input",render); });
   function invite(t){
@@ -280,7 +311,7 @@ var BUDGET_PER_HEAD = 1000;      // for the estimated spend tile when a price ra
   });
 
   var M=null;
-  function openModal(r){ M=r; $("mName").textContent=r.Name; $("mGift").textContent=r.Gift; $("mStatus").value=r.Status||"Pending"; $("mOrder").value=r["Order ID"]||""; $("mNote").value=r["Status note"]||""; $("mErr").textContent=""; $("modal").hidden=false; }
+  function openModal(r,preset){ M=r; $("mName").textContent=r.Name; $("mGift").textContent=r.Gift+(preset?"  ·  Amazon checkout is open in the other tab. Pick or add the address (details are on your clipboard), place the order, then paste the order ID here.":""); $("mStatus").value=preset||r.Status||"Pending"; $("mOrder").value=r["Order ID"]||""; $("mNote").value=r["Status note"]||""; $("mErr").textContent=""; $("modal").hidden=false; setTimeout(function(){ $("mOrder").focus(); },50); }
   $("mCancel").addEventListener("click",function(){ $("modal").hidden=true; });
   $("mSave").addEventListener("click",function(){
     var body={action:"status",key:KEY,id:M["Employee ID"],status:$("mStatus").value,orderId:$("mOrder").value.trim(),note:$("mNote").value.trim()};
@@ -289,7 +320,7 @@ var BUDGET_PER_HEAD = 1000;      // for the estimated spend tile when a price ra
     fetch(SCRIPT_URL,{method:"POST",body:JSON.stringify(body)}).then(function(r){return r.json()}).then(function(j){
       $("mSave").disabled=false;
       if(!j.ok){ $("mErr").textContent="Could not save: "+j.error; return; }
-      $("modal").hidden=true; toast("Status saved"); load();
+      $("modal").hidden=true; toast("Status saved for "+M.Name); load();
     }).catch(function(){ $("mSave").disabled=false; $("mErr").textContent="Could not reach the server."; });
   });
 

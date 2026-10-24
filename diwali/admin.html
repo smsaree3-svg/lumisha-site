@@ -222,6 +222,7 @@ var BUDGET_PER_HEAD = 1000;      // for the estimated spend tile when a price ra
         est=ROWS.reduce(function(a,r){return a+priceMid(r["Gift price"])},0);
     $("tiles").innerHTML=
       '<div class="tile sun"><span class="k">Responses</span><span class="v">'+n+'<span style="font-size:1rem;opacity:.7"> / '+TEAM_SIZE+'</span></span><span class="s" style="color:#9AA3B6">'+Math.max(TEAM_SIZE-n,0)+' still to choose</span></div>'+
+      '<div class="tile"><span class="k">Awaiting YES</span><span class="v">'+ROWS.filter(function(r){return !r.Confirmed}).length+'</span><span class="s">confirmation not received</span></div>'+
       '<div class="tile"><span class="k">To order</span><span class="v">'+pend+'</span><span class="s">pending on Amazon</span></div>'+
       '<div class="tile"><span class="k">Ordered</span><span class="v">'+ord+'</span><span class="s">in transit</span></div>'+
       '<div class="tile"><span class="k">Delivered</span><span class="v">'+del+'</span><span class="s">reached home</span></div>'+
@@ -258,8 +259,8 @@ var BUDGET_PER_HEAD = 1000;      // for the estimated spend tile when a price ra
         '<td><span class="n">'+esc(r.Name)+'</span><span class="m">'+esc(r.Email)+'</span><span class="m">'+esc(r.Phone)+'</span><span class="m">'+fmt(r.Updated)+'</span></td>'+
         '<td><span class="n">'+esc(r.Gift)+'</span><span class="m">'+esc(r["Gift price"])+(r.ASIN?' · <a href="https://www.amazon.in/dp/'+esc(r.ASIN)+'" target="_blank" rel="noopener">'+esc(r.ASIN)+'</a>':'')+'</span>'+(r["Backup gift"]?'<span class="m">Backup: '+esc(r["Backup gift"])+'</span>':'')+'</td>'+
         '<td><div class="addr">'+esc(addr(r))+'</div>'+(r.Notes?'<span class="m">'+esc(r.Notes)+'</span>':'')+'</td>'+
-        '<td><span class="pill '+st+'">'+st+'</span>'+(r["Order ID"]?'<span class="m" style="font-family:var(--mono)">'+esc(r["Order ID"])+'</span>':'')+(r["Status note"]?'<span class="m">'+esc(r["Status note"])+'</span>':'')+'</td>'+
-        '<td style="white-space:nowrap">'+(st==="Pending"&&r.ASIN?'<button class="btn sm primary" data-act="order" title="Copies the shipping details and opens Amazon checkout with this item, at the address step">Order on Amazon</button> ':'')+'<button class="btn sm" data-act="copy">Copy</button> <button class="btn sm" data-act="status">Status</button></td></tr>';
+        '<td><span class="pill '+st+'">'+st+'</span>'+(r.Confirmed?'<span class="m" style="color:var(--ok)">\u2713 Confirmed '+fmt(r.Confirmed)+'</span>':'<span class="m" style="color:var(--warn)">Awaiting YES</span>')+(r["Order ID"]?'<span class="m" style="font-family:var(--mono)">'+esc(r["Order ID"])+'</span>':'')+(r["Status note"]?'<span class="m">'+esc(r["Status note"])+'</span>':'')+'</td>'+
+        '<td style="white-space:nowrap">'+(!r.Confirmed?'<button class="btn sm" data-act="confirmmsg" title="Copies the WhatsApp confirmation message (send the photo first)">Confirm msg</button> '+(r.Photo?'<a class="btn sm" href="'+esc(r.Photo)+'" target="_blank" rel="noopener" title="Product photo to attach">Photo</a> ':'')+'<button class="btn sm" data-act="confirmed" title="They replied YES">Mark YES</button> ':'')+(st==="Pending"&&r.ASIN?'<button class="btn sm primary" data-act="order" title="Copies the shipping details and opens Amazon checkout with this item, at the address step">Order on Amazon</button> ':'')+'<button class="btn sm" data-act="copy">Copy</button> <button class="btn sm" data-act="status">Status</button></td></tr>';
     }).join("");
   }
 
@@ -287,12 +288,14 @@ var BUDGET_PER_HEAD = 1000;      // for the estimated spend tile when a price ra
     var r=ROWS[+b.closest("tr").dataset.i];
     if(b.dataset.act==="copy"){ navigator.clipboard.writeText(shipBlock(r)).then(function(){toast("Address copied for "+r.Name)}); }
     if(b.dataset.act==="status"){ openModal(r); }
-    if(b.dataset.act==="order"){ startOrder(r); }
+    if(b.dataset.act==="order"){ if(!r.Confirmed&&!confirm(r.Name+" has not confirmed yet (no YES marked). Order anyway?")) return; startOrder(r); }
+    if(b.dataset.act==="confirmmsg"){ navigator.clipboard.writeText(r["Confirm message"]||"").then(function(){toast("Confirmation message copied for "+r.Name+". Send the photo first, then paste.")}); }
+    if(b.dataset.act==="confirmed"){ fetch(SCRIPT_URL,{method:"POST",body:JSON.stringify({action:"confirm",key:KEY,id:r["Employee ID"]})}).then(function(x){return x.json()}).then(function(j){ if(j.ok){ toast("Marked confirmed: "+r.Name); load(); } else toast("Error: "+j.error); }); }
   });
   $("summary").addEventListener("click",function(e){ var b=e.target.closest("button[data-batch]"); if(b) startBatch(b.dataset.batch); });
   $("nextBtn").addEventListener("click",function(){
-    var p=ROWS.filter(function(r){return (r.Status||"Pending")==="Pending"&&r.ASIN}).sort(function(a,b){return new Date(a.Updated)-new Date(b.Updated)});
-    if(!p.length){ toast("Nothing left to order"); return; }
+    var p=ROWS.filter(function(r){return (r.Status||"Pending")==="Pending"&&r.ASIN&&r.Confirmed}).sort(function(a,b){return new Date(a.Updated)-new Date(b.Updated)});
+    if(!p.length){ toast("No confirmed orders waiting (mark YES first)"); return; }
     startOrder(p[0]);
   });
   ["q","fStatus","fGift"].forEach(function(id){ $(id).addEventListener("input",render); });
@@ -325,7 +328,7 @@ var BUDGET_PER_HEAD = 1000;      // for the estimated spend tile when a price ra
   });
 
   $("csvBtn").addEventListener("click",function(){
-    var cols=["Employee ID","Name","Email","Phone","Gift","Gift price","ASIN","Backup gift","Address 1","Address 2","City","State","PIN","Landmark","Notes","Status","Order ID","Status note","Submitted","Updated"];
+    var cols=["Employee ID","Name","Email","Phone","Gift","Gift price","ASIN","Backup gift","Address 1","Address 2","City","State","PIN","Landmark","Notes","Confirmed","Status","Order ID","Status note","Submitted","Updated"];
     var csv=[cols.join(",")].concat(ROWS.map(function(r){ return cols.map(function(c){ return '"'+String(r[c]==null?"":r[c]).replace(/"/g,'""')+'"'; }).join(","); })).join("\r\n");
     var a=document.createElement("a"); a.href=URL.createObjectURL(new Blob(["﻿"+csv],{type:"text/csv"})); a.download="lumisha-diwali-gifts.csv"; a.click();
   });
